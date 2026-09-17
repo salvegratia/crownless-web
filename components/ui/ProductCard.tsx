@@ -68,9 +68,6 @@ export function ProductCard({ product }: ProductCardProps) {
         </p>
         <div className="flex items-start justify-between gap-2">
           <span className="text-[14px] font-bold text-black leading-[18px]">{product.name}</span>
-          <span className="text-[14px] tracking-[0.4px] text-black whitespace-nowrap shrink-0">
-            {formatPrice(product.price)}
-          </span>
         </div>
         {product.colors.length > 1 && (
           <p className="text-[12px] text-black/40 mt-1">{product.colors.join(" / ")}</p>

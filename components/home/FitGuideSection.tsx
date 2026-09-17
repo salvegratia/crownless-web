@@ -58,14 +58,18 @@ export function FitGuideSection() {
             >
               {/* Image */}
               <div className="relative" style={{ paddingBottom: "100%" }}>
-                <Image
-                  src={fit.image}
-                  alt={fit.name}
-                  fill
-                  className="object-cover object-top group-hover:scale-[1.03] transition-transform duration-300"
-                  sizes="(max-width: 640px) 100vw, 33vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                {fit.image ? (
+                  <Image
+                    src={fit.image}
+                    alt={fit.name}
+                    fill
+                    className="object-cover object-top group-hover:scale-[1.03] transition-transform duration-300"
+                    sizes="(max-width: 640px) 100vw, 33vw"
+                  />
+                ) : (
+                  <div className="absolute inset-0 bg-[#111]" />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-4 text-center">
                   <p className="text-white text-[10px] font-[family-name:var(--font-montserrat)] font-black uppercase tracking-[0.15em] mb-1 opacity-70">
                     {fit.tag}

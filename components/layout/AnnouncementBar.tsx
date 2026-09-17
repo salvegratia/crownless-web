@@ -1,10 +1,10 @@
 "use client";
 
 const messages = [
-  "Envío Gratis en Compras +$200.000 COP",
-  "DROP 001 — Colección ORUM · 40 Unidades Limitadas",
-  "Cambios y Devoluciones Gratuitos",
-  "CROWNLESS CULT — EST. 2026 · Born to Rule",
+  "CROWNLESS AUTHORITY",
+  "CROWNLESS AUTHORITY",
+  "CROWNLESS AUTHORITY",
+  "CROWNLESS AUTHORITY",
 ];
 
 export function AnnouncementBar() {

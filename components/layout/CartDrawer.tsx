@@ -59,27 +59,6 @@ export function CartDrawer() {
               </button>
             </div>
 
-            {/* Free shipping bar */}
-            {cartTotal > 0 && (
-              <div className="px-6 py-3 bg-[#f5f5f5] border-b border-gray-200">
-                {remaining > 0 ? (
-                  <p className="text-[12px] text-black/70 mb-1.5">
-                    Te faltan <strong className="text-black">{formatPrice(remaining)}</strong> para envío gratis
-                  </p>
-                ) : (
-                  <p className="text-[12px] font-semibold text-black mb-1.5">¡Tienes envío gratis!</p>
-                )}
-                <div className="h-[2px] bg-gray-200 rounded-full overflow-hidden">
-                  <motion.div
-                    className="h-full bg-black"
-                    initial={{ width: 0 }}
-                    animate={{ width: `${progress}%` }}
-                    transition={{ duration: 0.4 }}
-                  />
-                </div>
-              </div>
-            )}
-
             {/* Items */}
             <div className="flex-1 overflow-y-auto px-6 py-4 space-y-4">
               {items.length === 0 ? (
@@ -115,7 +94,6 @@ export function CartDrawer() {
                           </button>
                         </div>
                         <div className="flex items-center gap-3">
-                          <span className="text-[14px] tracking-[0.4px]">{formatPrice(item.product.price * item.quantity)}</span>
                           <button onClick={() => removeItem(item.product.slug, item.color)} className="text-black/30 hover:text-black/70 transition-colors">
                             <Trash2 size={13} />
                           </button>
@@ -130,10 +108,6 @@ export function CartDrawer() {
             {/* Footer */}
             {items.length > 0 && (
               <div className="px-6 py-4 border-t border-gray-100 space-y-3">
-                <div className="flex justify-between items-center">
-                  <span className="text-[13px] text-black/60">Subtotal</span>
-                  <span className="text-[14px] font-semibold tracking-[0.4px]">{formatPrice(cartTotal)}</span>
-                </div>
                 <p className="text-[11px] text-black/40">Envío calculado al finalizar</p>
                 <button className="w-full bg-black text-white font-[family-name:var(--font-montserrat)] text-[13px] font-black uppercase tracking-[1.3px] h-[52px] rounded-[3px] hover:opacity-70 transition-opacity">
                   Finalizar Compra

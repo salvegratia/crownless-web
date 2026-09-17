@@ -20,7 +20,7 @@ const sections = [
     number: "02",
     title: "Cruz Lateral",
     subtitle: "Bordado en Hilo Beige Crema",
-    desc: "La cruz bordada en el panel lateral derecho es el símbolo central de CROWNLESS CULT. Ejecutada en hilo beige crema sobre el negro profundo — visible sin ser ostentosa.",
+    desc: "La cruz bordada en el panel lateral derecho es el símbolo central de CROWNLESS. Ejecutada en hilo beige crema sobre el negro profundo — visible sin ser ostentosa.",
     image: "https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=900&auto=format&fit=crop",
   },
   {

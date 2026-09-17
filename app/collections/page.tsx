@@ -2,8 +2,8 @@ import { products } from "@/lib/data/products";
 import { ProductCard } from "@/components/ui/ProductCard";
 
 export const metadata = {
-  title: "Colección DROP 001 — CROWNLESS CULT",
-  description: "ORUM — Primera colección de gorras CROWNLESS CULT. 40 unidades limitadas.",
+  title: "Colección DROP 001 — CROWNLESS",
+  description: "ORUM — Primera colección de gorras CROWNLESS. 40 unidades limitadas.",
 };
 
 export default function CollectionsPage() {

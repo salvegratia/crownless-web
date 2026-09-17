@@ -23,7 +23,7 @@ export default function FitGuidePage() {
           Guía de Fits
         </h1>
         <p className="text-[14px] text-black/60 max-w-xl leading-relaxed">
-          Cada gorra CROWNLESS CULT tiene una horma diseñada para una experiencia específica.
+          Cada gorra CROWNLESS tiene una horma diseñada para una experiencia específica.
           Mide tu cabeza e ingresa tu circunferencia para obtener una recomendación personalizada.
         </p>
       </div>
@@ -72,15 +72,24 @@ export default function FitGuidePage() {
               className="w-full grid grid-cols-1 md:grid-cols-3 gap-0 text-left hover:bg-[#fafafa] transition-colors"
             >
               {/* Image */}
-              <div className="relative h-44 md:h-auto overflow-hidden bg-[#f5f5f5]">
-                <Image
-                  src={fit.image}
-                  alt={fit.name}
-                  fill
-                  className="object-cover object-top"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-                {recommended === i && (
+              <div className="relative h-44 md:h-auto overflow-hidden bg-[#111]">
+                {fit.image ? (
+                  <Image
+                    src={fit.image}
+                    alt={fit.name}
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
+                    <span className="text-white/20 text-[10px] font-[family-name:var(--font-montserrat)] font-black uppercase tracking-[0.4em]">
+                      PRÓXIMAMENTE
+                    </span>
+                    <div className="w-8 h-px bg-white/20" />
+                  </div>
+                )}
+                {recommended === i && fit.image && (
                   <span className="absolute top-3 left-3 text-[10px] tracking-[0.15em] uppercase bg-black text-white px-2 py-1 font-bold">
                     Recomendada
                   </span>

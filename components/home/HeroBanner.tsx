@@ -10,8 +10,8 @@ export function HeroBanner() {
       {/* Landscape hero (desktop) */}
       <div className="hidden lg:block relative aspect-[2/1]">
         <Image
-          src="https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=1920&auto=format&fit=crop"
-          alt="CROWNLESS CULT — DROP 001"
+          src="/gorras/gorra2_01.jpg"
+          alt="CROWNLESS — DROP 001 · Gorra 2"
           fill
           className="object-cover object-center"
           priority
@@ -36,7 +36,7 @@ export function HeroBanner() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="font-[family-name:var(--font-montserrat)] text-white text-[56px] xl:text-[66px] font-black uppercase leading-none tracking-tight mb-5"
             >
-              Crownless<br />Cult
+              Crownless
             </motion.h1>
             <motion.p
               initial={{ opacity: 0 }}
@@ -72,8 +72,8 @@ export function HeroBanner() {
       {/* Portrait hero (mobile) */}
       <div className="lg:hidden relative aspect-[3/4]">
         <Image
-          src="https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=800&auto=format&fit=crop"
-          alt="CROWNLESS CULT"
+          src="/gorras/gorra2_01.jpg"
+          alt="CROWNLESS"
           fill
           className="object-cover object-center"
           priority

@@ -71,7 +71,7 @@ export function Footer() {
       <div className="max-w-[1220px] mx-auto px-4 lg:px-8 py-10 lg:py-12 grid grid-cols-2 md:grid-cols-4 gap-8">
         <div>
           <Link href="/" className="font-[family-name:var(--font-montserrat)] text-[15px] font-black uppercase tracking-[0.06em] text-white mb-3 block hover:opacity-70 transition-opacity">
-            Crownless Cult
+            Crownless
           </Link>
           <p className="text-[13px] text-white/50 leading-relaxed">
             Headwear de lujo urbano.<br />Medellín, Colombia.<br />EST. MMXXVI
@@ -108,7 +108,7 @@ export function Footer() {
       {/* Credits */}
       <div className="border-t border-white/10 px-4 lg:px-8 py-4">
         <div className="max-w-[1220px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
-          <p className="text-[12px] text-white/30">© 2026 Crownless Cult. Todos los derechos reservados.</p>
+          <p className="text-[12px] text-white/30">© 2026 Crownless. Todos los derechos reservados.</p>
           <div className="flex gap-5">
             {["Privacidad", "Términos"].map((t) => (
               <a key={t} href="#" className="text-[12px] text-white/30 hover:text-white/60 transition-colors">{t}</a>

@@ -16,8 +16,13 @@ const navLinks = [
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const { openCart, itemCount } = useCartStore();
-  const count = itemCount();
+  const [count, setCount] = useState(0);
+  const { openCart } = useCartStore();
+
+  useEffect(() => {
+    setCount(useCartStore.getState().itemCount());
+    return useCartStore.subscribe((state) => setCount(state.itemCount()));
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -39,7 +44,7 @@ export function Header() {
             href="/"
             className="font-[family-name:var(--font-montserrat)] text-black text-[15px] font-black tracking-[0.06em] uppercase hover:opacity-70 transition-opacity"
           >
-            Crownless Cult
+            Crownless
           </Link>
 
           {/* Desktop Nav */}

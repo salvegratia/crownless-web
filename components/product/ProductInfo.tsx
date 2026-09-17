@@ -42,12 +42,6 @@ export function ProductInfo({ product }: ProductInfoProps) {
         </h1>
       </div>
 
-      {/* Price */}
-      <p className="text-[22px] font-medium text-black tracking-[0.4px]">
-        {formatPrice(product.price)}{" "}
-        <span className="text-[14px] font-normal text-black/50">COP</span>
-      </p>
-
       {/* Description */}
       <p className="text-[14px] text-black/60 leading-relaxed">{product.description}</p>
 
