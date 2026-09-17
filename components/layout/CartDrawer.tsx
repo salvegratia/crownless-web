@@ -8,7 +8,7 @@ import Image from "next/image";
 import { useCartStore } from "@/lib/store/cart";
 
 // ← Reemplaza con tu número real (código país + número, sin + ni espacios)
-const WHATSAPP_NUMBER = "573000000000";
+const WHATSAPP_NUMBER = "573216859681";
 
 function buildWhatsAppUrl(items: ReturnType<typeof useCartStore.getState>["items"]): string {
   const lines = items.map(
