@@ -9,13 +9,13 @@ import { useCartStore } from "@/lib/store/cart";
 import { formatPrice } from "@/lib/data/products";
 
 export function CartDrawer() {
-  const { isOpen, closeCart, items, removeItem, updateQuantity, total, remainingForFreeShipping, freeShippingThreshold } =
-    useCartStore();
-  const drawerRef = useRef<HTMLDivElement>(null);
+  const {
+    isOpen, closeCart, items, removeItem, updateQuantity,
+    total, remainingForFreeShipping, freeShippingThreshold,
+  } = useCartStore();
 
   useEffect(() => {
-    if (isOpen) document.body.style.overflow = "hidden";
-    else document.body.style.overflow = "";
+    document.body.style.overflow = isOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [isOpen]);
 
@@ -27,61 +27,51 @@ export function CartDrawer() {
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 bg-black/70 z-50"
+            className="fixed inset-0 bg-black/40 z-50"
             onClick={closeCart}
           />
-
-          {/* Drawer */}
           <motion.div
-            ref={drawerRef}
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
-            transition={{ type: "tween", duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-            className="fixed right-0 top-0 h-full w-full max-w-md bg-[#111111] z-50 flex flex-col shadow-2xl border-l border-[#2A2A2A]"
+            transition={{ type: "tween", duration: 0.28, ease: [0.4, 0, 0.2, 1] as [number, number, number, number] }}
+            className="fixed right-0 top-0 h-full w-full max-w-[420px] bg-white z-50 flex flex-col shadow-2xl"
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-6 py-5 border-b border-[#2A2A2A]">
-              <div className="flex items-center gap-3">
-                <ShoppingBag size={18} strokeWidth={1.5} className="text-[#E8E3D9]/60" />
-                <span className="font-display text-sm tracking-[0.15em] uppercase font-bold text-[#E8E3D9]">
-                  Tu Carrito
+            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
+              <div className="flex items-center gap-2">
+                <span className="font-[family-name:var(--font-montserrat)] text-[12px] font-black uppercase tracking-[0.2em]">
+                  Carrito
                 </span>
                 {items.length > 0 && (
-                  <span className="text-xs text-[#E8E3D9]/40">({items.length})</span>
+                  <span className="w-5 h-5 bg-black text-white text-[10px] font-bold rounded-full flex items-center justify-center">
+                    {items.reduce((s, i) => s + i.quantity, 0)}
+                  </span>
                 )}
               </div>
-              <button
-                onClick={closeCart}
-                className="p-2 text-[#E8E3D9]/60 hover:text-[#E8E3D9] transition-colors"
-              >
-                <X size={18} strokeWidth={1.5} />
+              <button onClick={closeCart} className="p-1 text-black/40 hover:text-black transition-colors">
+                <X size={18} />
               </button>
             </div>
 
-            {/* Free shipping progress */}
+            {/* Free shipping bar */}
             {cartTotal > 0 && (
-              <div className="px-6 py-4 bg-[#1A1A1A] border-b border-[#2A2A2A]">
+              <div className="px-6 py-3 bg-[#f5f5f5] border-b border-gray-200">
                 {remaining > 0 ? (
-                  <p className="text-[11px] tracking-[0.12em] text-[#E8E3D9]/70 mb-2">
-                    Te faltan{" "}
-                    <span className="text-[#E8E3D9] font-semibold">{formatPrice(remaining)}</span>{" "}
-                    para envío gratis
+                  <p className="text-[12px] text-black/70 mb-1.5">
+                    Te faltan <strong className="text-black">{formatPrice(remaining)}</strong> para envío gratis
                   </p>
                 ) : (
-                  <p className="text-[11px] tracking-[0.12em] text-[#E8E3D9] font-semibold mb-2">
-                    ✦ ¡Tienes envío gratis!
-                  </p>
+                  <p className="text-[12px] font-semibold text-black mb-1.5">¡Tienes envío gratis!</p>
                 )}
-                <div className="h-0.5 bg-[#2A2A2A] rounded-full overflow-hidden">
+                <div className="h-[2px] bg-gray-200 rounded-full overflow-hidden">
                   <motion.div
-                    className="h-full bg-[#E8E3D9]"
+                    className="h-full bg-black"
                     initial={{ width: 0 }}
                     animate={{ width: `${progress}%` }}
                     transition={{ duration: 0.4 }}
@@ -93,71 +83,41 @@ export function CartDrawer() {
             {/* Items */}
             <div className="flex-1 overflow-y-auto px-6 py-4 space-y-4">
               {items.length === 0 ? (
-                <div className="flex flex-col items-center justify-center h-full gap-4 text-center">
-                  <ShoppingBag size={40} strokeWidth={1} className="text-[#E8E3D9]/20" />
-                  <p className="text-sm text-[#E8E3D9]/40 tracking-[0.1em] uppercase">
-                    Tu carrito está vacío
-                  </p>
+                <div className="flex flex-col items-center justify-center h-full gap-5 text-center">
+                  <ShoppingBag size={40} strokeWidth={1} className="text-black/20" />
+                  <p className="text-[13px] text-black/50 tracking-[0.05em]">Tu carrito está vacío</p>
                   <Link
                     href="/collections"
                     onClick={closeCart}
-                    className="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#E8E3D9] border border-[#E8E3D9]/30 px-6 py-3 hover:bg-[#E8E3D9] hover:text-[#0B0B0B] transition-all"
+                    className="text-[12px] font-[family-name:var(--font-montserrat)] font-black uppercase tracking-[0.2em] bg-black text-white px-6 py-3 hover:opacity-70 transition-opacity rounded-[3px]"
                   >
                     Ver Colección
                   </Link>
                 </div>
               ) : (
                 items.map((item) => (
-                  <div
-                    key={`${item.product.slug}-${item.color}`}
-                    className="flex gap-4 pb-4 border-b border-[#2A2A2A] last:border-0"
-                  >
-                    <div className="relative w-20 h-20 bg-[#1A1A1A] shrink-0 overflow-hidden">
-                      <Image
-                        src={item.product.images[0]}
-                        alt={item.product.name}
-                        fill
-                        className="object-cover"
-                        sizes="80px"
-                      />
+                  <div key={`${item.product.slug}-${item.color}`} className="flex gap-4 pb-4 border-b border-gray-100 last:border-0">
+                    <div className="relative w-[72px] h-[96px] bg-[#f5f5f5] shrink-0 overflow-hidden border-b border-[#707070]">
+                      <Image src={item.product.images[0]} alt={item.product.name} fill className="object-cover" sizes="72px" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-[10px] tracking-[0.15em] text-[#E8E3D9]/50 uppercase mb-0.5">
-                        {item.product.collectionTag}
-                      </p>
-                      <p className="text-sm font-semibold text-[#E8E3D9] truncate">
-                        {item.product.name}
-                      </p>
-                      <p className="text-[11px] text-[#E8E3D9]/50 mt-0.5">{item.color}</p>
-                      <div className="flex items-center justify-between mt-3">
-                        <div className="flex items-center gap-2 border border-[#2A2A2A]">
-                          <button
-                            onClick={() =>
-                              updateQuantity(item.product.slug, item.color, item.quantity - 1)
-                            }
-                            className="p-1.5 text-[#E8E3D9]/60 hover:text-[#E8E3D9] transition-colors"
-                          >
-                            <Minus size={12} />
+                      <p className="text-[11px] text-[rgb(114,107,103)] tracking-[0.4px] capitalize mb-0.5">{item.product.collection}</p>
+                      <p className="text-[14px] font-bold text-black leading-[18px] mb-0.5 truncate">{item.product.name}</p>
+                      <p className="text-[12px] text-black/50 mb-3">{item.color}</p>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-0 border border-[#e4e4e4]">
+                          <button onClick={() => updateQuantity(item.product.slug, item.color, item.quantity - 1)} className="px-2.5 py-1 text-black/50 hover:text-black transition-colors text-sm">
+                            <Minus size={11} />
                           </button>
-                          <span className="text-sm w-6 text-center">{item.quantity}</span>
-                          <button
-                            onClick={() =>
-                              updateQuantity(item.product.slug, item.color, item.quantity + 1)
-                            }
-                            className="p-1.5 text-[#E8E3D9]/60 hover:text-[#E8E3D9] transition-colors"
-                          >
-                            <Plus size={12} />
+                          <span className="text-[13px] w-6 text-center">{item.quantity}</span>
+                          <button onClick={() => updateQuantity(item.product.slug, item.color, item.quantity + 1)} className="px-2.5 py-1 text-black/50 hover:text-black transition-colors text-sm">
+                            <Plus size={11} />
                           </button>
                         </div>
                         <div className="flex items-center gap-3">
-                          <span className="text-sm font-semibold">
-                            {formatPrice(item.product.price * item.quantity)}
-                          </span>
-                          <button
-                            onClick={() => removeItem(item.product.slug, item.color)}
-                            className="text-[#E8E3D9]/30 hover:text-[#E8E3D9]/80 transition-colors"
-                          >
-                            <Trash2 size={14} />
+                          <span className="text-[14px] tracking-[0.4px]">{formatPrice(item.product.price * item.quantity)}</span>
+                          <button onClick={() => removeItem(item.product.slug, item.color)} className="text-black/30 hover:text-black/70 transition-colors">
+                            <Trash2 size={13} />
                           </button>
                         </div>
                       </div>
@@ -169,17 +129,13 @@ export function CartDrawer() {
 
             {/* Footer */}
             {items.length > 0 && (
-              <div className="px-6 py-5 border-t border-[#2A2A2A] space-y-3">
+              <div className="px-6 py-4 border-t border-gray-100 space-y-3">
                 <div className="flex justify-between items-center">
-                  <span className="text-sm tracking-[0.1em] uppercase text-[#E8E3D9]/60">
-                    Subtotal
-                  </span>
-                  <span className="font-semibold text-[#E8E3D9]">{formatPrice(cartTotal)}</span>
+                  <span className="text-[13px] text-black/60">Subtotal</span>
+                  <span className="text-[14px] font-semibold tracking-[0.4px]">{formatPrice(cartTotal)}</span>
                 </div>
-                <p className="text-[10px] text-[#E8E3D9]/40 tracking-[0.08em]">
-                  Envío calculado al finalizar
-                </p>
-                <button className="w-full bg-[#E8E3D9] text-[#0B0B0B] py-4 text-[11px] font-bold tracking-[0.25em] uppercase hover:bg-white transition-colors">
+                <p className="text-[11px] text-black/40">Envío calculado al finalizar</p>
+                <button className="w-full bg-black text-white font-[family-name:var(--font-montserrat)] text-[13px] font-black uppercase tracking-[1.3px] h-[52px] rounded-[3px] hover:opacity-70 transition-opacity">
                   Finalizar Compra
                 </button>
               </div>

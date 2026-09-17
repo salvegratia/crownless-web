@@ -28,14 +28,14 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   const related = products.filter((p) => p.slug !== product.slug);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+    <div className="max-w-[1220px] mx-auto px-4 lg:px-6 py-12 sm:py-16">
       {/* Breadcrumb */}
-      <nav className="flex items-center gap-2 text-[10px] tracking-[0.15em] uppercase text-[#E8E3D9]/40 mb-10">
-        <a href="/" className="hover:text-[#E8E3D9]/70 transition-colors">Home</a>
+      <nav className="flex items-center gap-2 text-[11px] tracking-[0.12em] uppercase text-black/35 mb-10">
+        <a href="/" className="hover:text-black transition-colors">Home</a>
         <span>/</span>
-        <a href="/collections" className="hover:text-[#E8E3D9]/70 transition-colors">Colección</a>
+        <a href="/collections" className="hover:text-black transition-colors">Colección</a>
         <span>/</span>
-        <span className="text-[#E8E3D9]/70">{product.name}</span>
+        <span className="text-black/60">{product.name}</span>
       </nav>
 
       {/* Main product section */}
@@ -67,10 +67,10 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       {related.length > 0 && (
         <div>
           <div className="mb-8">
-            <p className="text-[10px] tracking-[0.3em] uppercase text-[#E8E3D9]/40 mb-2">
-              ✦ Colección ORUM
+            <p className="text-[11px] text-[rgb(114,107,103)] tracking-[0.4px] capitalize mb-2">
+              Colección ORUM
             </p>
-            <h2 className="font-display text-xl font-bold tracking-[0.08em] uppercase text-[#E8E3D9]">
+            <h2 className="font-[family-name:var(--font-montserrat)] text-[20px] font-black uppercase tracking-tight text-black">
               También te puede interesar
             </h2>
           </div>

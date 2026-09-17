@@ -13,53 +13,46 @@ export default function CultClubPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen bg-white flex flex-col">
       {/* Hero */}
-      <section className="flex-1 flex items-center justify-center py-24 px-4 relative">
-        {/* Grid background */}
-        <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage: `repeating-linear-gradient(0deg, #E8E3D9 0px, #E8E3D9 1px, transparent 1px, transparent 60px), repeating-linear-gradient(90deg, #E8E3D9 0px, #E8E3D9 1px, transparent 1px, transparent 60px)`,
-          }}
-        />
-
-        <div className="relative z-10 max-w-lg mx-auto text-center">
+      <section className="flex-1 flex items-center justify-center py-20 px-4 bg-[#f5f5f5]">
+        <div className="w-full max-w-[500px]">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
+            className="text-center mb-8"
           >
-            <p className="text-[10px] tracking-[0.5em] uppercase text-[#E8E3D9]/40 mb-6">
-              ✦ Acceso Privado ✦
+            <p className="text-[11px] text-[rgb(114,107,103)] tracking-[0.4px] capitalize mb-4">
+              Acceso Privado
             </p>
-            <h1 className="font-display text-4xl sm:text-5xl font-black tracking-[0.04em] uppercase text-[#E8E3D9] mb-4 leading-none">
+            <h1 className="font-[family-name:var(--font-montserrat)] text-[46px] sm:text-[54px] font-black uppercase tracking-tight text-black leading-none mb-5">
               CULT CLUB
             </h1>
-            <div className="w-12 h-px bg-[#E8E3D9]/30 mx-auto my-6" />
-            <p className="text-sm text-[#E8E3D9]/60 mb-2 leading-relaxed">
+            <div className="w-10 h-px bg-[#707070] mx-auto my-5" />
+            <p className="text-[14px] text-black/60 mb-2 leading-relaxed">
               El DROP 001 — Colección ORUM está a punto de salir.
               <br />
-              <strong className="text-[#E8E3D9]">40 unidades.</strong> Sin reposición.
+              <strong className="text-black">40 unidades.</strong> Sin reposición.
             </p>
-            <p className="text-xs text-[#E8E3D9]/40 tracking-[0.15em] uppercase mb-10">
+            <p className="text-[12px] text-black/40 tracking-[0.12em] uppercase">
               Si sabes, sabes.
             </p>
           </motion.div>
 
           {submitted ? (
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 0, scale: 0.97 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="bg-[#1A1A1A] border border-[#E8E3D9]/20 p-10"
+              className="bg-white border border-[#e4e4e4] p-10 text-center"
             >
-              <p className="text-[10px] tracking-[0.4em] uppercase text-[#E8E3D9]/40 mb-3">
-                ✦ Bienvenido al Culto
+              <p className="text-[11px] text-[rgb(114,107,103)] tracking-[0.4px] capitalize mb-3">
+                Bienvenido al Culto
               </p>
-              <h2 className="font-display text-2xl font-bold tracking-[0.06em] uppercase text-[#E8E3D9] mb-3">
+              <h2 className="font-[family-name:var(--font-montserrat)] text-[24px] font-black uppercase tracking-tight text-black mb-3">
                 Estás dentro.
               </h2>
-              <p className="text-sm text-[#E8E3D9]/60">
+              <p className="text-[14px] text-black/60">
                 Te avisaremos antes que nadie cuando el DROP 001 esté disponible.
               </p>
             </motion.div>
@@ -69,10 +62,10 @@ export default function CultClubPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
               onSubmit={handleSubmit}
-              className="bg-[#1A1A1A] border border-[#2A2A2A] p-8 space-y-4 text-left"
+              className="bg-white border border-[#e4e4e4] p-8 space-y-4"
             >
               <div>
-                <label className="block text-[10px] tracking-[0.2em] uppercase text-[#E8E3D9]/50 mb-2">
+                <label className="block text-[11px] font-[family-name:var(--font-montserrat)] font-black uppercase tracking-[0.15em] text-black/50 mb-2">
                   Nombre
                 </label>
                 <input
@@ -81,11 +74,11 @@ export default function CultClubPage() {
                   placeholder="Tu nombre"
                   value={form.nombre}
                   onChange={(e) => setForm((f) => ({ ...f, nombre: e.target.value }))}
-                  className="w-full bg-[#0B0B0B] border border-[#3A3A3A] px-4 py-3 text-sm text-[#E8E3D9] placeholder-[#E8E3D9]/30 focus:outline-none focus:border-[#E8E3D9]/50"
+                  className="w-full bg-white border border-[#707070] px-4 py-3 text-[14px] text-black placeholder-black/30 focus:outline-none focus:border-black"
                 />
               </div>
               <div>
-                <label className="block text-[10px] tracking-[0.2em] uppercase text-[#E8E3D9]/50 mb-2">
+                <label className="block text-[11px] font-[family-name:var(--font-montserrat)] font-black uppercase tracking-[0.15em] text-black/50 mb-2">
                   Email
                 </label>
                 <input
@@ -94,68 +87,67 @@ export default function CultClubPage() {
                   placeholder="tu@email.com"
                   value={form.email}
                   onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
-                  className="w-full bg-[#0B0B0B] border border-[#3A3A3A] px-4 py-3 text-sm text-[#E8E3D9] placeholder-[#E8E3D9]/30 focus:outline-none focus:border-[#E8E3D9]/50"
+                  className="w-full bg-white border border-[#707070] px-4 py-3 text-[14px] text-black placeholder-black/30 focus:outline-none focus:border-black"
                 />
               </div>
               <div>
-                <label className="block text-[10px] tracking-[0.2em] uppercase text-[#E8E3D9]/50 mb-2">
+                <label className="block text-[11px] font-[family-name:var(--font-montserrat)] font-black uppercase tracking-[0.15em] text-black/50 mb-2">
                   Ciudad{" "}
-                  <span className="text-[#E8E3D9]/30 normal-case">(opcional)</span>
+                  <span className="text-black/30 normal-case font-normal">(opcional)</span>
                 </label>
                 <input
                   type="text"
                   placeholder="Medellín, Bogotá..."
                   value={form.ciudad}
                   onChange={(e) => setForm((f) => ({ ...f, ciudad: e.target.value }))}
-                  className="w-full bg-[#0B0B0B] border border-[#3A3A3A] px-4 py-3 text-sm text-[#E8E3D9] placeholder-[#E8E3D9]/30 focus:outline-none focus:border-[#E8E3D9]/50"
+                  className="w-full bg-white border border-[#707070] px-4 py-3 text-[14px] text-black placeholder-black/30 focus:outline-none focus:border-black"
                 />
               </div>
               <button
                 type="submit"
-                className="w-full bg-[#E8E3D9] text-[#0B0B0B] py-4 text-[11px] font-bold tracking-[0.3em] uppercase hover:bg-white transition-colors mt-2"
+                className="w-full font-[family-name:var(--font-montserrat)] text-[13px] font-black uppercase tracking-[1.3px] bg-black text-white py-4 rounded-[3px] hover:opacity-70 transition-opacity mt-2"
               >
                 Unirme al Culto
               </button>
             </motion.form>
           )}
 
-          {/* Footer note */}
-          <p className="text-[10px] text-[#E8E3D9]/25 mt-6 tracking-[0.08em]">
+          <p className="text-[11px] text-black/25 mt-5 text-center tracking-[0.08em]">
             No spam. Solo acceso privado cuando el DROP esté listo.
           </p>
         </div>
       </section>
 
-      {/* What you get */}
-      <section className="bg-[#111111] border-t border-[#2A2A2A] py-16 px-4">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-center font-display text-xl font-bold tracking-[0.1em] uppercase text-[#E8E3D9] mb-10">
+      {/* Benefits */}
+      <section className="bg-white border-t border-[#e4e4e4] py-16 px-4">
+        <div className="max-w-[900px] mx-auto">
+          <h2 className="font-[family-name:var(--font-montserrat)] text-[18px] font-black uppercase tracking-tight text-black text-center mb-12">
             ¿Qué reciben los miembros?
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
             {[
               {
-                icon: "⚡",
+                num: "01",
                 title: "Acceso Anticipado",
                 desc: "Los miembros del CULT CLUB tienen 24 horas de ventaja antes del lanzamiento público.",
               },
               {
-                icon: "✦",
+                num: "02",
                 title: "Ediciones Exclusivas",
                 desc: "Algunos drops solo estarán disponibles para los miembros. Sin excepción.",
               },
               {
-                icon: "⬛",
+                num: "03",
                 title: "Detrás del Proceso",
                 desc: "Acceso al proceso de creación: desde el brief hasta la gorra en mano.",
               },
             ].map((b) => (
               <div key={b.title} className="text-center">
-                <p className="text-2xl mb-3">{b.icon}</p>
-                <h3 className="text-sm font-bold tracking-[0.15em] uppercase text-[#E8E3D9] mb-2">
+                <p className="font-[family-name:var(--font-montserrat)] text-[11px] font-black text-black/25 tracking-[0.2em] mb-3">{b.num}</p>
+                <h3 className="font-[family-name:var(--font-montserrat)] text-[13px] font-black uppercase tracking-[0.15em] text-black mb-3">
                   {b.title}
                 </h3>
-                <p className="text-xs text-[#E8E3D9]/50 leading-relaxed">{b.desc}</p>
+                <p className="text-[13px] text-black/50 leading-relaxed">{b.desc}</p>
               </div>
             ))}
           </div>

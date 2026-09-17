@@ -4,64 +4,47 @@ import { useState } from "react";
 
 export function NewsletterSection() {
   const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) setSubmitted(true);
-  };
+  const [done, setDone] = useState(false);
 
   return (
-    <section className="py-24 px-4 bg-[#1A1A1A] relative overflow-hidden">
-      {/* Background pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `repeating-linear-gradient(0deg, #E8E3D9 0px, #E8E3D9 1px, transparent 1px, transparent 80px), repeating-linear-gradient(90deg, #E8E3D9 0px, #E8E3D9 1px, transparent 1px, transparent 80px)`,
-        }}
-      />
+    <section className="py-14 lg:py-20 bg-[#ededed]">
+      <div className="max-w-[1220px] mx-auto px-4 lg:px-6">
+        <div className="max-w-[640px] mx-auto text-center">
+          <p className="text-[11px] text-[rgb(114,107,103)] tracking-[0.4px] capitalize mb-3">
+            Sé el primero
+          </p>
+          <h2 className="font-[family-name:var(--font-montserrat)] text-[26px] lg:text-[32px] font-black uppercase tracking-tight mb-3">
+            Únete al CULT Club
+          </h2>
+          <p className="text-[14px] text-black/60 mb-7">
+            Acceso anticipado al DROP 001 — 40 unidades limitadas.
+            <br />Sin spam. Solo lo esencial.
+          </p>
 
-      <div className="relative z-10 max-w-2xl mx-auto text-center">
-        <p className="text-[10px] tracking-[0.4em] uppercase text-[#E8E3D9]/40 mb-4">
-          ✦ CULT CLUB ✦
-        </p>
-        <h2 className="font-display text-3xl md:text-4xl font-black tracking-[0.06em] uppercase text-[#E8E3D9] mb-4">
-          Únete al Culto
-        </h2>
-        <p className="text-sm text-[#E8E3D9]/60 mb-2 leading-relaxed">
-          Acceso privado al DROP 001 antes que nadie.
-        </p>
-        <p className="text-xs text-[#E8E3D9]/40 mb-10 tracking-[0.1em] uppercase">
-          40 unidades. Sin reposición. Si sabes, sabes.
-        </p>
-
-        {submitted ? (
-          <div className="py-6">
-            <p className="text-[10px] tracking-[0.3em] uppercase text-[#E8E3D9]/60 mb-2">
-              ✦ Bienvenido al Culto
-            </p>
-            <p className="font-display text-xl font-bold text-[#E8E3D9]">
-              Estás dentro.
-            </p>
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit} className="flex gap-0 max-w-sm mx-auto">
-            <input
-              type="email"
-              required
-              placeholder="tu@email.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="flex-1 bg-[#0B0B0B] border border-[#3A3A3A] border-r-0 px-4 py-4 text-sm text-[#E8E3D9] placeholder-[#E8E3D9]/30 focus:outline-none focus:border-[#E8E3D9]/40"
-            />
-            <button
-              type="submit"
-              className="bg-[#E8E3D9] text-[#0B0B0B] px-6 py-4 text-[10px] font-bold tracking-[0.25em] uppercase hover:bg-white transition-colors whitespace-nowrap"
+          {done ? (
+            <p className="text-[14px] font-semibold text-black">¡Estás dentro! Te avisamos primero. ✓</p>
+          ) : (
+            <form
+              onSubmit={(e) => { e.preventDefault(); if (email) setDone(true); }}
+              className="flex gap-0 max-w-sm mx-auto"
             >
-              Entrar
-            </button>
-          </form>
-        )}
+              <input
+                type="email"
+                required
+                placeholder="tu@email.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="flex-1 border border-[#707070] border-r-0 bg-white px-4 py-3 text-[14px] focus:outline-none focus:border-black"
+              />
+              <button
+                type="submit"
+                className="bg-black text-white font-[family-name:var(--font-montserrat)] text-[12px] font-black uppercase tracking-[1.3px] px-6 py-3 hover:opacity-70 transition-opacity whitespace-nowrap rounded-r-[3px]"
+              >
+                Suscribirse
+              </button>
+            </form>
+          )}
+        </div>
       </div>
     </section>
   );

@@ -4,9 +4,42 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
-interface AccordionItem {
+interface AccordionItemProps {
   title: string;
   content: React.ReactNode;
+}
+
+function AccordionRow({ title, content }: AccordionItemProps) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="border-b border-[#e4e4e4] last:border-0">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between py-4 text-left hover:opacity-70 transition-opacity"
+      >
+        <span className="font-[family-name:var(--font-montserrat)] text-[13px] font-black uppercase tracking-[0.15em] text-black">
+          {title}
+        </span>
+        <motion.span animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.2 }} className="text-black/40 shrink-0 ml-4">
+          <ChevronDown size={15} />
+        </motion.span>
+      </button>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.22 }}
+            className="overflow-hidden"
+          >
+            <div className="pb-4 text-[14px] text-black/60 leading-relaxed">{content}</div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
 }
 
 interface ProductAccordionsProps {
@@ -16,86 +49,19 @@ interface ProductAccordionsProps {
   shipping: string;
 }
 
-function AccordionRow({ title, content }: AccordionItem) {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <div className="border-b border-[#2A2A2A] last:border-0">
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between py-4 text-left"
-      >
-        <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#E8E3D9]">
-          {title}
-        </span>
-        <motion.span
-          animate={{ rotate: open ? 180 : 0 }}
-          transition={{ duration: 0.2 }}
-          className="text-[#E8E3D9]/50 shrink-0"
-        >
-          <ChevronDown size={16} />
-        </motion.span>
-      </button>
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="overflow-hidden"
-          >
-            <div className="pb-4 text-sm text-[#E8E3D9]/60 leading-relaxed">{content}</div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-}
-
 export function ProductAccordions({ luxury, packaging, care, shipping }: ProductAccordionsProps) {
-  const items: AccordionItem[] = [
-    {
-      title: "Especificaciones de Lujo Técnico",
-      content: (
-        <ul className="space-y-2">
-          {luxury.map((spec, i) => (
-            <li key={i} className="flex items-start gap-2">
-              <span className="text-[#E8E3D9]/30 mt-0.5">✦</span>
-              {spec}
-            </li>
-          ))}
-        </ul>
-      ),
-    },
-    {
-      title: "Empaque Inflable de Protección",
-      content: <p>{packaging}</p>,
-    },
-    {
-      title: "Guía de Cuidados",
-      content: (
-        <ul className="space-y-2">
-          {care.map((step, i) => (
-            <li key={i} className="flex items-start gap-2">
-              <span className="text-[#E8E3D9]/30 mt-0.5">—</span>
-              {step}
-            </li>
-          ))}
-        </ul>
-      ),
-    },
-    {
-      title: "Envío y Devoluciones",
-      content: <p>{shipping}</p>,
-    },
-  ];
-
   return (
-    <div className="border-t border-[#2A2A2A]">
-      {items.map((item) => (
-        <AccordionRow key={item.title} title={item.title} content={item.content} />
-      ))}
+    <div>
+      <AccordionRow
+        title="Especificaciones Técnicas"
+        content={<ul className="space-y-1.5">{luxury.map((s, i) => <li key={i} className="flex items-start gap-2"><span className="mt-1.5 w-1 h-1 rounded-full bg-black/30 shrink-0" />{s}</li>)}</ul>}
+      />
+      <AccordionRow title="Empaque de Protección" content={<p>{packaging}</p>} />
+      <AccordionRow
+        title="Guía de Cuidados"
+        content={<ul className="space-y-1.5">{care.map((s, i) => <li key={i} className="flex items-start gap-2"><span className="mt-1.5 w-1 h-1 rounded-full bg-black/30 shrink-0" />{s}</li>)}</ul>}
+      />
+      <AccordionRow title="Envíos y Devoluciones" content={<p>{shipping}</p>} />
     </div>
   );
 }

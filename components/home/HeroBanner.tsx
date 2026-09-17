@@ -1,99 +1,100 @@
 "use client";
 
-import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0 },
-};
+import { motion } from "framer-motion";
 
 export function HeroBanner() {
   return (
-    <section className="relative min-h-[92vh] flex items-center justify-center overflow-hidden bg-[#0B0B0B]">
-      {/* Background texture */}
-      <div
-        className="absolute inset-0 opacity-10"
-        style={{
-          backgroundImage: `url("https://images.unsplash.com/photo-1542361345-89e58247f2d5?q=20&w=1920&auto=format&fit=crop")`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0B0B0B]/40 via-transparent to-[#0B0B0B]" />
-
-      {/* Content */}
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-[10px] tracking-[0.4em] uppercase text-[#E8E3D9]/50 mb-6"
-        >
-          ✦ EST. MMXXVI — Medellín, Colombia ✦
-        </motion.p>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="font-display text-5xl sm:text-7xl md:text-8xl font-black tracking-[0.04em] uppercase leading-none text-[#E8E3D9] mb-4"
-        >
-          CROWNLESS
-          <br />
-          <span className="text-[#E8E3D9]/90">CULT</span>
-        </motion.h1>
-
-        <motion.div
-          initial={{ opacity: 0, scaleX: 0 }}
-          animate={{ opacity: 1, scaleX: 1 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="w-16 h-px bg-[#E8E3D9]/30 mx-auto my-6"
+    <section className="relative w-full overflow-hidden">
+      {/* Landscape hero (desktop) */}
+      <div className="hidden lg:block relative aspect-[2/1]">
+        <Image
+          src="https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=1920&auto=format&fit=crop"
+          alt="CROWNLESS CULT — DROP 001"
+          fill
+          className="object-cover object-center"
+          priority
+          sizes="100vw"
         />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent" />
 
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="text-[11px] tracking-[0.35em] uppercase text-[#E8E3D9]/60 mb-10"
-        >
-          DROP 001 — COLECCIÓN ORUM — BORN TO RULE
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.75 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
-        >
-          <Link
-            href="/collections"
-            className="inline-block bg-[#E8E3D9] text-[#0B0B0B] px-10 py-4 text-[11px] font-bold tracking-[0.3em] uppercase hover:bg-white transition-colors"
-          >
-            Comprar Drop 001
-          </Link>
-          <Link
-            href="/fit-guide"
-            className="inline-block border border-[#E8E3D9]/40 text-[#E8E3D9] px-10 py-4 text-[11px] font-bold tracking-[0.3em] uppercase hover:border-[#E8E3D9] hover:bg-[#E8E3D9]/5 transition-all"
-          >
-            Guía de Fits
-          </Link>
-        </motion.div>
+        {/* Text overlay — left aligned */}
+        <div className="absolute inset-0 flex items-center">
+          <div className="pl-[8%] max-w-xl">
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-white/70 text-[11px] font-[family-name:var(--font-montserrat)] font-black uppercase tracking-[0.3em] mb-3"
+            >
+              Drop 001 · Colección ORUM
+            </motion.p>
+            <motion.h1
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="font-[family-name:var(--font-montserrat)] text-white text-[56px] xl:text-[66px] font-black uppercase leading-none tracking-tight mb-5"
+            >
+              Crownless<br />Cult
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="text-white/80 text-[15px] mb-7 leading-relaxed"
+            >
+              Headwear de lujo urbano desde Medellín.<br />40 unidades. Sin reposición.
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="flex gap-3"
+            >
+              <Link
+                href="/collections"
+                className="inline-flex items-center justify-center bg-white text-black font-[family-name:var(--font-montserrat)] text-[13px] font-black uppercase tracking-[1.3px] h-[52px] px-10 rounded-[3px] hover:bg-white/90 transition-colors"
+              >
+                Comprar ahora
+              </Link>
+              <Link
+                href="/fit-guide"
+                className="inline-flex items-center justify-center bg-transparent text-white font-[family-name:var(--font-montserrat)] text-[13px] font-black uppercase tracking-[1.3px] h-[52px] px-8 border-2 border-white rounded-[3px] hover:bg-white hover:text-black transition-all"
+              >
+                Guía de Fits
+              </Link>
+            </motion.div>
+          </div>
+        </div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 0.6 }}
-      >
-        <motion.div
-          className="w-px h-10 bg-[#E8E3D9]/20"
-          animate={{ scaleY: [1, 0.4, 1] }}
-          transition={{ repeat: Infinity, duration: 1.8 }}
+      {/* Portrait hero (mobile) */}
+      <div className="lg:hidden relative aspect-[3/4]">
+        <Image
+          src="https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=800&auto=format&fit=crop"
+          alt="CROWNLESS CULT"
+          fill
+          className="object-cover object-center"
+          priority
+          sizes="100vw"
         />
-      </motion.div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 p-6">
+          <p className="text-white/60 text-[10px] font-[family-name:var(--font-montserrat)] font-black uppercase tracking-[0.25em] mb-2">
+            Drop 001 · Colección ORUM
+          </p>
+          <h1 className="font-[family-name:var(--font-montserrat)] text-white text-[38px] font-black uppercase leading-none tracking-tight mb-4">
+            Crownless<br />Cult
+          </h1>
+          <Link
+            href="/collections"
+            className="inline-flex items-center justify-center bg-white text-black font-[family-name:var(--font-montserrat)] text-[12px] font-black uppercase tracking-[1.3px] h-[44px] px-7 rounded-[3px]"
+          >
+            Comprar ahora
+          </Link>
+        </div>
+      </div>
     </section>
   );
 }

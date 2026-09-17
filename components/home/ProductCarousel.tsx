@@ -9,51 +9,50 @@ export function ProductCarousel() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const scroll = (dir: "left" | "right") => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: dir === "right" ? 360 : -360, behavior: "smooth" });
-    }
+    scrollRef.current?.scrollBy({ left: dir === "right" ? 320 : -320, behavior: "smooth" });
   };
 
   return (
-    <section className="py-20 px-4">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-10 lg:py-14">
+      <div className="max-w-[1220px] mx-auto px-4 lg:px-6">
         {/* Header */}
-        <div className="flex items-end justify-between mb-10">
+        <div className="flex items-end justify-between mb-7">
           <div>
-            <p className="text-[10px] tracking-[0.3em] uppercase text-[#E8E3D9]/40 mb-2">
-              ✦ DROP 001
+            <p className="text-[11px] text-[rgb(114,107,103)] tracking-[0.4px] capitalize mb-1">
+              Drop 001
             </p>
-            <h2 className="font-display text-2xl md:text-3xl font-bold tracking-[0.08em] uppercase text-[#E8E3D9]">
+            <h2 className="font-[family-name:var(--font-montserrat)] text-[22px] font-black uppercase tracking-tight">
               Colección ORUM
             </h2>
           </div>
-          <div className="hidden sm:flex gap-2">
-            <button
-              onClick={() => scroll("left")}
-              className="p-2.5 border border-[#2A2A2A] text-[#E8E3D9]/50 hover:text-[#E8E3D9] hover:border-[#E8E3D9]/30 transition-all"
-            >
-              <ChevronLeft size={16} />
+          <div className="flex gap-1.5">
+            <button onClick={() => scroll("left")} className="w-8 h-8 border border-[#e4e4e4] flex items-center justify-center text-black/50 hover:text-black hover:border-black transition-all">
+              <ChevronLeft size={14} />
             </button>
-            <button
-              onClick={() => scroll("right")}
-              className="p-2.5 border border-[#2A2A2A] text-[#E8E3D9]/50 hover:text-[#E8E3D9] hover:border-[#E8E3D9]/30 transition-all"
-            >
-              <ChevronRight size={16} />
+            <button onClick={() => scroll("right")} className="w-8 h-8 border border-[#e4e4e4] flex items-center justify-center text-black/50 hover:text-black hover:border-black transition-all">
+              <ChevronRight size={14} />
             </button>
           </div>
         </div>
 
-        {/* Cards */}
+        {/* Scrollable cards — desktop 4-up, mobile 1.2-up */}
         <div
           ref={scrollRef}
-          className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory"
+          className="flex gap-[14px] overflow-x-auto snap-x snap-mandatory"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {products.map((product) => (
-            <div key={product.slug} className="snap-start shrink-0 w-72 sm:w-80">
+            <div key={product.slug} className="snap-start shrink-0 w-[calc(100%-16px)] sm:w-[calc(50%-7px)] md:w-[calc(33.33%-10px)] lg:w-[calc(25%-11px)]">
               <ProductCard product={product} />
             </div>
           ))}
+        </div>
+
+        {/* View all CTA */}
+        <div className="mt-8 text-center">
+          <a href="/collections" className="inline-flex items-center justify-center border border-black text-black font-[family-name:var(--font-montserrat)] text-[12px] font-black uppercase tracking-[1.3px] h-[39px] px-8 rounded-[3px] hover:bg-black hover:text-white transition-all">
+            Ver todos los productos
+          </a>
         </div>
       </div>
     </section>

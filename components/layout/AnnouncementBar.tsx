@@ -1,33 +1,32 @@
 "use client";
 
 const messages = [
-  "CROWNLESS CULT — EST. 2026",
-  "DROP 001 — COLECCIÓN ORUM",
-  "40 UNIDADES. SIN REPOSICIÓN.",
-  "ENVÍO GRATIS EN COMPRAS +$200.000 COP",
-  "ÚNETE AL CULTO — ACCESO PRIVADO",
-  "CROWNLESS AUTHORITY — BORN TO RULE",
+  "Envío Gratis en Compras +$200.000 COP",
+  "DROP 001 — Colección ORUM · 40 Unidades Limitadas",
+  "Cambios y Devoluciones Gratuitos",
+  "CROWNLESS CULT — EST. 2026 · Born to Rule",
 ];
-
-const repeated = [...messages, ...messages];
 
 export function AnnouncementBar() {
   return (
-    <div className="bg-[#E8E3D9] text-[#0B0B0B] py-2 overflow-hidden relative">
+    <div className="bg-black text-white py-2 text-center text-[13px] tracking-[0.4px] font-sans font-normal overflow-hidden">
       <div
         className="flex whitespace-nowrap"
-        style={{ animation: "marquee 35s linear infinite" }}
+        style={{ animation: "marquee 30s linear infinite" }}
       >
-        {repeated.map((msg, i) => (
-          <span
-            key={i}
-            className="text-[10px] font-sans font-semibold tracking-[0.2em] uppercase px-6"
-          >
+        {[...messages, ...messages].map((msg, i) => (
+          <span key={i} className="px-10">
             {msg}
-            <span className="mx-4 opacity-40">✦</span>
+            <span className="mx-8 opacity-40">·</span>
           </span>
         ))}
       </div>
+      <style>{`
+        @keyframes marquee {
+          from { transform: translateX(0); }
+          to   { transform: translateX(-50%); }
+        }
+      `}</style>
     </div>
   );
 }

@@ -1,13 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { ShoppingBag, Menu, X } from "lucide-react";
+import { ShoppingBag, Search, User, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useCartStore } from "@/lib/store/cart";
 import { AnnouncementBar } from "./AnnouncementBar";
 
 const navLinks = [
-  { label: "Colección Gorras", href: "/collections" },
+  { label: "Colección", href: "/collections" },
   { label: "Guía de Fits", href: "/fit-guide" },
   { label: "Anatomía & Tech", href: "/technology" },
   { label: "CULT Club", href: "/cult-club" },
@@ -20,7 +20,7 @@ export function Header() {
   const count = itemCount();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -29,69 +29,70 @@ export function Header() {
     <div className="sticky top-0 z-50">
       <AnnouncementBar />
       <header
-        className={`transition-all duration-300 border-b ${
-          scrolled
-            ? "bg-[#0B0B0B]/95 backdrop-blur-md border-[#2A2A2A]"
-            : "bg-[#0B0B0B] border-transparent"
+        className={`bg-white transition-shadow duration-200 ${
+          scrolled ? "shadow-[0_2px_4px_0_rgba(0,0,0,0.1)]" : "border-b border-gray-100"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
+        <div className="max-w-[1220px] mx-auto px-4 lg:px-6 flex items-center justify-between h-[52px] lg:h-[60px]">
           {/* Logo */}
           <Link
             href="/"
-            className="font-display text-[#E8E3D9] text-base font-bold tracking-[0.15em] uppercase hover:opacity-80 transition-opacity"
+            className="font-[family-name:var(--font-montserrat)] text-black text-[15px] font-black tracking-[0.06em] uppercase hover:opacity-70 transition-opacity"
           >
-            CROWNLESS CULT
+            Crownless Cult
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-[11px] font-sans font-semibold tracking-[0.18em] uppercase text-[#E8E3D9]/70 hover:text-[#E8E3D9] transition-colors"
+                className="font-[family-name:var(--font-montserrat)] text-[12px] font-black uppercase tracking-[0.25em] text-black hover:opacity-50 transition-opacity"
               >
                 {link.label}
               </Link>
             ))}
           </nav>
 
-          {/* Right actions */}
-          <div className="flex items-center gap-4">
+          {/* Right icons */}
+          <div className="flex items-center gap-1">
+            <button className="hidden lg:flex p-2 text-black/60 hover:text-black transition-colors">
+              <Search size={18} strokeWidth={1.5} />
+            </button>
+            <button className="hidden lg:flex p-2 text-black/60 hover:text-black transition-colors">
+              <User size={18} strokeWidth={1.5} />
+            </button>
             <button
               onClick={openCart}
-              className="relative p-2 text-[#E8E3D9]/80 hover:text-[#E8E3D9] transition-colors"
-              aria-label="Abrir carrito"
+              className="relative p-2 text-black/70 hover:text-black transition-colors"
+              aria-label="Carrito"
             >
               <ShoppingBag size={20} strokeWidth={1.5} />
               {count > 0 && (
-                <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-[#E8E3D9] text-[#0B0B0B] text-[9px] font-bold rounded-full flex items-center justify-center">
+                <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-black text-white text-[9px] font-bold rounded-full flex items-center justify-center">
                   {count}
                 </span>
               )}
             </button>
-
-            {/* Mobile menu toggle */}
             <button
-              className="md:hidden p-2 text-[#E8E3D9]/80 hover:text-[#E8E3D9] transition-colors"
+              className="lg:hidden p-2 text-black hover:opacity-60 transition-opacity"
               onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label="Menú"
             >
               {mobileOpen ? <X size={20} strokeWidth={1.5} /> : <Menu size={20} strokeWidth={1.5} />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile menu */}
         {mobileOpen && (
-          <div className="md:hidden bg-[#0B0B0B] border-t border-[#2A2A2A] px-4 py-6 space-y-4">
+          <div className="lg:hidden bg-white border-t border-gray-100 px-4 py-4">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="block text-sm font-semibold tracking-[0.18em] uppercase text-[#E8E3D9]/80 hover:text-[#E8E3D9] py-2 border-b border-[#2A2A2A]"
+                className="block font-[family-name:var(--font-montserrat)] text-[12px] font-black uppercase tracking-[0.2em] text-black py-3 border-b border-gray-100 last:border-0 hover:opacity-60 transition-opacity"
               >
                 {link.label}
               </Link>

@@ -14,80 +14,50 @@ interface AnatomyHotspotsProps {
 export function AnatomyHotspots({ image, name, hotspots }: AnatomyHotspotsProps) {
   const [active, setActive] = useState<string | null>(null);
 
-  const activeHotspot = hotspots.find((h) => h.id === active);
-
   return (
-    <div className="bg-[#111111] border border-[#2A2A2A] p-6 sm:p-8">
-      <p className="text-[10px] tracking-[0.3em] uppercase text-[#E8E3D9]/40 mb-2">
-        ✦ Anatomía & Tecnología
-      </p>
-      <h2 className="font-display text-lg font-bold tracking-[0.08em] uppercase text-[#E8E3D9] mb-6">
-        Disección de la {name}
-      </h2>
+    <div className="bg-[#f5f5f5] p-6 sm:p-8 lg:p-10">
+      <div className="mb-6">
+        <p className="text-[11px] text-[rgb(114,107,103)] tracking-[0.4px] capitalize mb-1">
+          Anatomía & Tecnología
+        </p>
+        <h2 className="font-[family-name:var(--font-montserrat)] text-[22px] font-black uppercase tracking-tight">
+          Disección: {name}
+        </h2>
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
         {/* Image with hotspots */}
-        <div className="relative aspect-[4/3] bg-[#1A1A1A] overflow-hidden">
-          <Image
-            src={image}
-            alt={name}
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, 40vw"
-          />
-          <div className="absolute inset-0 bg-[#0B0B0B]/20" />
+        <div className="relative bg-white aspect-[4/3] overflow-hidden">
+          <Image src={image} alt={name} fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 40vw" />
 
           {hotspots.map((spot, i) => (
             <button
               key={spot.id}
               onClick={() => setActive(active === spot.id ? null : spot.id)}
               style={{ left: `${spot.x}%`, top: `${spot.y}%` }}
-              className="absolute -translate-x-1/2 -translate-y-1/2 z-10 group"
+              className="absolute -translate-x-1/2 -translate-y-1/2 z-10"
             >
-              <span
-                className={`flex items-center justify-center w-8 h-8 rounded-full border-2 transition-all text-xs font-bold ${
-                  active === spot.id
-                    ? "bg-[#E8E3D9] border-[#E8E3D9] text-[#0B0B0B]"
-                    : "bg-[#0B0B0B]/70 border-[#E8E3D9]/70 text-[#E8E3D9]"
-                }`}
-                style={
-                  active !== spot.id
-                    ? { animation: "pulse-ring 2s ease-out infinite" }
-                    : {}
-                }
-              >
+              <span className={`flex items-center justify-center w-7 h-7 rounded-full border-2 text-[11px] font-bold transition-all ${active === spot.id ? "bg-black border-black text-white" : "bg-white border-black text-black hover:bg-black hover:text-white"}`}>
                 {i + 1}
               </span>
             </button>
           ))}
         </div>
 
-        {/* Hotspot list */}
-        <div className="space-y-1">
+        {/* List */}
+        <div className="space-y-0">
           {hotspots.map((spot, i) => (
             <button
               key={spot.id}
               onClick={() => setActive(active === spot.id ? null : spot.id)}
-              className={`w-full text-left p-4 border transition-all ${
-                active === spot.id
-                  ? "border-[#E8E3D9]/30 bg-[#E8E3D9]/5"
-                  : "border-[#2A2A2A] hover:border-[#E8E3D9]/20"
-              }`}
+              className={`w-full text-left p-4 border-b border-[#e4e4e4] transition-all hover:bg-white/50 ${active === spot.id ? "bg-white" : ""}`}
             >
               <div className="flex items-start gap-3">
-                <span
-                  className={`shrink-0 w-6 h-6 flex items-center justify-center text-[10px] font-bold rounded-full border ${
-                    active === spot.id
-                      ? "bg-[#E8E3D9] border-[#E8E3D9] text-[#0B0B0B]"
-                      : "border-[#3A3A3A] text-[#E8E3D9]/50"
-                  }`}
-                >
+                <span className={`shrink-0 w-6 h-6 flex items-center justify-center text-[10px] font-bold rounded-full border transition-all ${active === spot.id ? "bg-black border-black text-white" : "border-[#707070] text-black/50"}`}>
                   {i + 1}
                 </span>
                 <div>
-                  <p className="text-xs font-semibold tracking-[0.1em] uppercase text-[#E8E3D9] mb-1">
-                    {spot.label}
-                  </p>
+                  <p className="text-[13px] font-bold text-black">{spot.label}</p>
                   <AnimatePresence>
                     {active === spot.id && (
                       <motion.p
@@ -95,7 +65,7 @@ export function AnatomyHotspots({ image, name, hotspots }: AnatomyHotspotsProps)
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.2 }}
-                        className="text-xs text-[#E8E3D9]/60 leading-relaxed overflow-hidden"
+                        className="text-[13px] text-black/60 leading-relaxed overflow-hidden mt-1"
                       >
                         {spot.desc}
                       </motion.p>

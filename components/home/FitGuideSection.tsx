@@ -6,99 +6,83 @@ import Link from "next/link";
 import { fitStyles } from "@/lib/data/fitGuide";
 
 export function FitGuideSection() {
-  const [active, setActive] = useState(0);
-  const [cm, setCm] = useState("");
+  const [activeInput, setActiveInput] = useState("");
 
-  const recommended = cm
-    ? Number(cm) <= 57
-      ? 1
-      : Number(cm) >= 63
-      ? 2
-      : 0
+  const recommendedIdx = activeInput
+    ? Number(activeInput) <= 57 ? 1 : Number(activeInput) >= 63 ? 2 : 0
     : null;
 
   return (
-    <section className="py-20 px-4 bg-[#111111]">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-12 lg:py-16 bg-[#f5f5f5]">
+      <div className="max-w-[1220px] mx-auto px-4 lg:px-6">
         {/* Header */}
-        <div className="text-center mb-14">
-          <p className="text-[10px] tracking-[0.3em] uppercase text-[#E8E3D9]/40 mb-3">
-            ✦ Elige tu horma
+        <div className="text-center mb-10">
+          <p className="text-[11px] text-[rgb(114,107,103)] tracking-[0.4px] capitalize mb-2">
+            Encuentra tu fit perfecto
           </p>
-          <h2 className="font-display text-2xl md:text-3xl font-bold tracking-[0.08em] uppercase text-[#E8E3D9] mb-4">
+          <h2 className="font-[family-name:var(--font-montserrat)] text-[26px] font-black uppercase tracking-tight mb-4">
             Guía de Fits
           </h2>
-          <p className="text-sm text-[#E8E3D9]/60 max-w-xl mx-auto leading-relaxed">
-            Cada gorra CROWNLESS CULT está diseñada para una experiencia específica.
-            Encuentra tu horma perfecta.
+          <p className="text-[14px] text-black/60 max-w-md mx-auto">
+            Cada horma está diseñada para una experiencia específica.
           </p>
         </div>
 
-        {/* Circumference input */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-12">
-          <label className="text-[11px] tracking-[0.15em] uppercase text-[#E8E3D9]/60">
-            Tu circunferencia (cm):
+        {/* Quick finder */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-10">
+          <label className="text-[12px] font-[family-name:var(--font-montserrat)] font-black uppercase tracking-[0.15em] text-black/60">
+            Circunferencia (cm):
           </label>
           <input
             type="number"
             min={50}
             max={70}
             placeholder="ej. 58"
-            value={cm}
-            onChange={(e) => { setCm(e.target.value); setActive(Number(e.target.value) <= 57 ? 1 : Number(e.target.value) >= 63 ? 2 : 0); }}
-            className="w-24 bg-transparent border border-[#3A3A3A] text-center text-sm text-[#E8E3D9] py-2 px-3 focus:outline-none focus:border-[#E8E3D9]/50"
+            value={activeInput}
+            onChange={(e) => setActiveInput(e.target.value)}
+            className="w-20 border border-[#707070] bg-white text-center text-[14px] py-2 px-3 focus:outline-none focus:border-black"
           />
-          {cm && recommended !== null && (
-            <span className="text-xs text-[#E8E3D9]/70">
-              → Recomendada:{" "}
-              <span className="text-[#E8E3D9] font-semibold">{fitStyles[recommended].name}</span>
+          {activeInput && recommendedIdx !== null && (
+            <span className="text-[13px] text-black/70">
+              → <strong>{fitStyles[recommendedIdx].name}</strong> recomendada
             </span>
           )}
         </div>
 
-        {/* Fit cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        {/* Style cards — 3 columns */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-[14px]">
           {fitStyles.map((fit, i) => (
-            <button
+            <div
               key={fit.id}
-              onClick={() => setActive(i)}
-              className={`text-left bg-[#1A1A1A] border transition-all overflow-hidden group ${
-                active === i || recommended === i
-                  ? "border-[#E8E3D9]/40"
-                  : "border-[#2A2A2A] hover:border-[#E8E3D9]/20"
-              }`}
+              className={`bg-white group overflow-hidden ${recommendedIdx === i ? "ring-2 ring-black" : ""}`}
             >
-              <div className="relative h-52 overflow-hidden">
+              {/* Image */}
+              <div className="relative" style={{ paddingBottom: "100%" }}>
                 <Image
                   src={fit.image}
                   alt={fit.name}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover object-top group-hover:scale-[1.03] transition-transform duration-300"
+                  sizes="(max-width: 640px) 100vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-transparent to-transparent" />
-                <span className="absolute top-3 left-3 text-[9px] tracking-[0.2em] uppercase bg-[#0B0B0B]/80 text-[#E8E3D9]/70 px-2 py-1">
-                  {fit.tag}
-                </span>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-4 text-center">
+                  <p className="text-white text-[10px] font-[family-name:var(--font-montserrat)] font-black uppercase tracking-[0.15em] mb-1 opacity-70">
+                    {fit.tag}
+                  </p>
+                  <h3 className="text-white font-[family-name:var(--font-montserrat)] text-[16px] font-black uppercase">
+                    {fit.name}
+                  </h3>
+                  <Link
+                    href="/fit-guide"
+                    className="inline-block mt-3 bg-white text-black font-[family-name:var(--font-montserrat)] text-[11px] font-black uppercase tracking-[1.3px] px-5 py-1.5 rounded-[3px] hover:bg-black hover:text-white transition-all w-4/5"
+                  >
+                    Ver detalles
+                  </Link>
+                </div>
               </div>
-              <div className="p-5">
-                <h3 className="font-display text-sm font-bold tracking-[0.1em] uppercase text-[#E8E3D9] mb-2">
-                  {fit.name}
-                </h3>
-                <p className="text-xs text-[#E8E3D9]/60 leading-relaxed mb-3">{fit.description}</p>
-                <p className="text-[10px] text-[#E8E3D9]/40 tracking-[0.05em]">{fit.bestFor}</p>
-              </div>
-            </button>
+            </div>
           ))}
-        </div>
-
-        <div className="text-center">
-          <Link
-            href="/fit-guide"
-            className="inline-block text-[11px] font-semibold tracking-[0.2em] uppercase text-[#E8E3D9]/60 hover:text-[#E8E3D9] transition-colors border-b border-[#E8E3D9]/20 hover:border-[#E8E3D9]/50 pb-0.5"
-          >
-            Ver Guía Completa de Fits →
-          </Link>
         </div>
       </div>
     </section>
