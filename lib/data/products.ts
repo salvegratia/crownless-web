@@ -42,9 +42,9 @@ export const products: Product[] = [
     currency: "COP",
     colors: ["Negro Absoluto"],
     images: [
-      "/gorras/gorra1_01.jpg",
-      "/gorras/gorra1_02.jpg",
-      "/gorras/gorra1_03.jpg",
+      "/gorras/gorra1_frente.jpg",
+      "/gorras/gorra1_atras.jpg",
+      "/gorras/gorra1_interna.jpg",
     ],
     hotspots: [
       {
@@ -128,9 +128,10 @@ export const products: Product[] = [
     currency: "COP",
     colors: ["Negro Absoluto"],
     images: [
-      "/gorras/gorra2_01.jpg",
-      "/gorras/gorra2_02.jpg",
-      "/gorras/gorra2_03.jpg",
+      "/gorras/gorra2_frente.jpg",
+      "/gorras/gorra2_trasera.jpg",
+      "/gorras/gorra2_interior.jpg",
+      "/gorras/gorra2_mockup.jpg",
     ],
     hotspots: [
       {

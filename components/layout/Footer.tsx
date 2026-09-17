@@ -16,7 +16,6 @@ export function Footer() {
     ],
     "Explorar": [
       { label: "Guía de Fits", href: "/fit-guide" },
-      { label: "Anatomía & Tech", href: "/technology" },
       { label: "CULT Club", href: "/cult-club" },
       { label: "Sobre la Marca", href: "#" },
     ],

@@ -2,7 +2,6 @@ import { notFound } from "next/navigation";
 import { getProductBySlug, products } from "@/lib/data/products";
 import { ProductGallery } from "@/components/product/ProductGallery";
 import { ProductInfo } from "@/components/product/ProductInfo";
-import { AnatomyHotspots } from "@/components/product/AnatomyHotspots";
 import { ProductAccordions } from "@/components/product/ProductAccordions";
 import { ProductCard } from "@/components/ui/ProductCard";
 
@@ -42,15 +41,6 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 mb-16">
         <ProductGallery images={product.images} name={product.name} />
         <ProductInfo product={product} />
-      </div>
-
-      {/* Anatomy hotspots */}
-      <div className="mb-12">
-        <AnatomyHotspots
-          image={product.images[0]}
-          name={product.name}
-          hotspots={product.hotspots}
-        />
       </div>
 
       {/* Accordions */}

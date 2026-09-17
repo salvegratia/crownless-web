@@ -26,7 +26,7 @@ export const fitStyles: FitStyle[] = [
     bestFor:
       "Funciona con casi cualquier tipo de cráneo. La elección más versátil.",
     image:
-      "/gorras/gorra2_01.jpg",
+      "/gorras/gorra2_frente.jpg",
     products: ["Monogram 3D Cap"],
     measurements: [
       { label: "Altura del frente", small: "15 cm", classic: "16 cm", xl: "17 cm" },

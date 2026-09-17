@@ -10,7 +10,7 @@ export function HeroBanner() {
       {/* Landscape hero (desktop) */}
       <div className="hidden lg:block relative aspect-[2/1]">
         <Image
-          src="/gorras/gorra2_01.jpg"
+          src="/gorras/gorra2_frente.jpg"
           alt="CROWNLESS — DROP 001 · Gorra 2"
           fill
           className="object-cover object-center"
@@ -72,7 +72,7 @@ export function HeroBanner() {
       {/* Portrait hero (mobile) */}
       <div className="lg:hidden relative aspect-[3/4]">
         <Image
-          src="/gorras/gorra2_01.jpg"
+          src="/gorras/gorra2_frente.jpg"
           alt="CROWNLESS"
           fill
           className="object-cover object-center"

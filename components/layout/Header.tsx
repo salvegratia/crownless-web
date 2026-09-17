@@ -9,7 +9,6 @@ import { AnnouncementBar } from "./AnnouncementBar";
 const navLinks = [
   { label: "Colección", href: "/collections" },
   { label: "Guía de Fits", href: "/fit-guide" },
-  { label: "Anatomía & Tech", href: "/technology" },
   { label: "CULT Club", href: "/cult-club" },
 ];
 
