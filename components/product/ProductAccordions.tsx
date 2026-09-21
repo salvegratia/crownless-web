@@ -43,25 +43,23 @@ function AccordionRow({ title, content }: AccordionItemProps) {
 }
 
 interface ProductAccordionsProps {
-  luxury: string[];
-  packaging: string;
+  details: string;
   care: string[];
   shipping: string;
 }
 
-export function ProductAccordions({ luxury, packaging, care, shipping }: ProductAccordionsProps) {
+export function ProductAccordions({ details, care, shipping }: ProductAccordionsProps) {
   return (
     <div>
       <AccordionRow
-        title="Especificaciones Técnicas"
-        content={<ul className="space-y-1.5">{luxury.map((s, i) => <li key={i} className="flex items-start gap-2"><span className="mt-1.5 w-1 h-1 rounded-full bg-black/30 shrink-0" />{s}</li>)}</ul>}
+        title="Detalles"
+        content={<p className="leading-relaxed">{details}</p>}
       />
-      <AccordionRow title="Empaque de Protección" content={<p>{packaging}</p>} />
       <AccordionRow
         title="Guía de Cuidados"
         content={<ul className="space-y-1.5">{care.map((s, i) => <li key={i} className="flex items-start gap-2"><span className="mt-1.5 w-1 h-1 rounded-full bg-black/30 shrink-0" />{s}</li>)}</ul>}
       />
-      <AccordionRow title="Envíos y Devoluciones" content={<p>{shipping}</p>} />
+      <AccordionRow title="Envíos y Devoluciones" content={<p className="whitespace-pre-line">{shipping}</p>} />
     </div>
   );
 }

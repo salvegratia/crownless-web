@@ -1,15 +1,15 @@
 "use client";
 
 const messages = [
-  "CROWNLESS AUTHORITY",
-  "CROWNLESS AUTHORITY",
-  "CROWNLESS AUTHORITY",
-  "CROWNLESS AUTHORITY",
+  "CROWNLESS CULT",
+  "CROWNLESS CULT",
+  "CROWNLESS CULT",
+  "CROWNLESS CULT",
 ];
 
 export function AnnouncementBar() {
   return (
-    <div className="bg-black text-white py-2 text-center text-[13px] tracking-[0.4px] font-sans font-normal overflow-hidden">
+    <div className="bg-black text-[#A5957F] py-2 text-center text-[13px] tracking-[0.4px] font-sans font-normal overflow-hidden">
       <div
         className="flex whitespace-nowrap"
         style={{ animation: "marquee 30s linear infinite" }}

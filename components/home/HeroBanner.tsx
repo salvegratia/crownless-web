@@ -2,90 +2,160 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
+
+const slides = [
+  {
+    src: "/banner_hero.jpg",
+    alt: "CROWNLESS — Ambas gorras",
+    objectPosition: "center",
+    isLogo: false,
+  },
+  {
+    src: "/logo.jpg",
+    alt: "CROWNLESS Logo",
+    objectPosition: "center",
+    isLogo: true,
+  },
+];
 
 export function HeroBanner() {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % slides.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, []);
+
+  const slide = slides[current];
+
   return (
     <section className="relative w-full overflow-hidden">
-      {/* Landscape hero (desktop) */}
+      {/* ── Desktop 2:1 ── */}
       <div className="hidden lg:block relative aspect-[2/1]">
-        <Image
-          src="/gorras/gorra2_frente.jpg"
-          alt="CROWNLESS — DROP 001 · Gorra 2"
-          fill
-          className="object-cover object-center"
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent" />
 
-        {/* Text overlay — left aligned */}
-        <div className="absolute inset-0 flex items-center">
-          <div className="pl-[8%] max-w-xl">
+        {/* Slides — crossfade */}
+        <AnimatePresence mode="sync">
+          <motion.div
+            key={current}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            className="absolute inset-0"
+          >
+            {slide.isLogo ? (
+              /* Slide de logo: fondo negro, logo centrado + texto */
+              <div className="absolute inset-0 bg-black flex items-center justify-center">
+                <Image
+                  src={slide.src}
+                  alt={slide.alt}
+                  width={320}
+                  height={320}
+                  className="w-[28vw] max-w-[364px] h-auto"
+                  priority
+                />
+              </div>
+            ) : (
+              <Image
+                src={slide.src}
+                alt={slide.alt}
+                fill
+                className="object-cover"
+                style={{ objectPosition: slide.objectPosition }}
+                priority={current === 0}
+                sizes="100vw"
+              />
+            )}
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Gradient izquierdo permanente para texto */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/20 to-transparent pointer-events-none" />
+
+        {/* Texto — siempre visible */}
+        <div className="absolute inset-0 flex items-center pointer-events-none">
+          <div className="pl-[6%] max-w-lg pointer-events-auto">
             <motion.p
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-white/70 text-[11px] font-[family-name:var(--font-montserrat)] font-black uppercase tracking-[0.3em] mb-3"
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="text-[#A5957F] text-[11px] font-[family-name:var(--font-montserrat)] font-black uppercase tracking-[0.3em] mb-3"
             >
-              Drop 001 · Colección ORUM
+              Colección ORUM
             </motion.p>
             <motion.h1
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="font-[family-name:var(--font-montserrat)] text-white text-[56px] xl:text-[66px] font-black uppercase leading-none tracking-tight mb-5"
+              transition={{ duration: 0.6, delay: 0.25 }}
+              className="font-[family-name:var(--font-montserrat)] text-[#A5957F] text-[38px] xl:text-[46px] font-black uppercase leading-none tracking-tight mb-5 whitespace-nowrap"
             >
-              Crownless
+              CROWNLESS CULT
             </motion.h1>
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="text-white/80 text-[15px] mb-7 leading-relaxed"
+            <Link
+              href="/collections"
+              className="inline-flex items-center justify-center bg-white text-black font-[family-name:var(--font-montserrat)] text-[13px] font-black uppercase tracking-[1.3px] h-[52px] px-10 rounded-[3px] hover:bg-white/90 transition-colors"
             >
-              Headwear de lujo urbano desde Medellín.<br />40 unidades. Sin reposición.
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="flex gap-3"
-            >
-              <Link
-                href="/collections"
-                className="inline-flex items-center justify-center bg-white text-black font-[family-name:var(--font-montserrat)] text-[13px] font-black uppercase tracking-[1.3px] h-[52px] px-10 rounded-[3px] hover:bg-white/90 transition-colors"
-              >
-                Comprar ahora
-              </Link>
-              <Link
-                href="/fit-guide"
-                className="inline-flex items-center justify-center bg-transparent text-white font-[family-name:var(--font-montserrat)] text-[13px] font-black uppercase tracking-[1.3px] h-[52px] px-8 border-2 border-white rounded-[3px] hover:bg-white hover:text-black transition-all"
-              >
-                Guía de Fits
-              </Link>
-            </motion.div>
+              Comprar ahora
+            </Link>
           </div>
+        </div>
+
+        {/* Dots indicadores */}
+        <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              className={`rounded-full transition-all duration-300 ${
+                i === current
+                  ? "w-5 h-1.5 bg-white"
+                  : "w-1.5 h-1.5 bg-white/40"
+              }`}
+            />
+          ))}
         </div>
       </div>
 
-      {/* Portrait hero (mobile) */}
+      {/* ── Mobile 3:4 ── */}
       <div className="lg:hidden relative aspect-[3/4]">
-        <Image
-          src="/gorras/gorra2_frente.jpg"
-          alt="CROWNLESS"
-          fill
-          className="object-cover object-center"
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+        <AnimatePresence mode="sync">
+          <motion.div
+            key={current}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            className="absolute inset-0"
+          >
+            {slide.isLogo ? (
+              <div className="absolute inset-0 bg-black flex items-center justify-center">
+                <Image src={slide.src} alt={slide.alt} width={200} height={200} className="w-[71vw] h-auto" />
+              </div>
+            ) : (
+              <Image
+                src={slide.src}
+                alt={slide.alt}
+                fill
+                className="object-cover object-center"
+                priority={current === 0}
+                sizes="100vw"
+              />
+            )}
+          </motion.div>
+        </AnimatePresence>
+
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent pointer-events-none" />
+
         <div className="absolute bottom-0 left-0 right-0 p-6">
-          <p className="text-white/60 text-[10px] font-[family-name:var(--font-montserrat)] font-black uppercase tracking-[0.25em] mb-2">
-            Drop 001 · Colección ORUM
+          <p className="text-[#A5957F] text-[10px] font-[family-name:var(--font-montserrat)] font-black uppercase tracking-[0.25em] mb-2">
+            Colección ORUM
           </p>
-          <h1 className="font-[family-name:var(--font-montserrat)] text-white text-[38px] font-black uppercase leading-none tracking-tight mb-4">
-            Crownless<br />Cult
+          <h1 className="font-[family-name:var(--font-montserrat)] text-[#A5957F] text-[28px] font-black uppercase leading-none tracking-tight mb-4 whitespace-nowrap">
+            CROWNLESS CULT
           </h1>
           <Link
             href="/collections"
@@ -93,6 +163,19 @@ export function HeroBanner() {
           >
             Comprar ahora
           </Link>
+        </div>
+
+        {/* Dots mobile */}
+        <div className="absolute bottom-[140px] left-1/2 -translate-x-1/2 flex gap-2">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              className={`rounded-full transition-all duration-300 ${
+                i === current ? "w-5 h-1.5 bg-white" : "w-1.5 h-1.5 bg-white/40"
+              }`}
+            />
+          ))}
         </div>
       </div>
     </section>

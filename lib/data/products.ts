@@ -20,8 +20,7 @@ export interface Product {
   hotspots: Hotspot[];
   features: string[];
   accordions: {
-    luxury: string[];
-    packaging: string;
+    details: string;
     care: string[];
     shipping: string;
   };
@@ -33,12 +32,12 @@ export interface Product {
 export const products: Product[] = [
   {
     slug: "orum-authority-cap",
-    name: "ORUM Authority Cap",
-    subtitle: "CROWNLESS",
+    name: "ORUM Cult Cap",
+    subtitle: "CROWNLESS CULT",
     collection: "CULT Line",
     collectionTag: "CULT LINE",
-    edition: "Edición Limitada 01/40",
-    price: 210000,
+    edition: undefined,
+    price: 145000,
     currency: "COP",
     colors: ["Negro Absoluto"],
     images: [
@@ -66,7 +65,7 @@ export const products: Product[] = [
         x: 82,
         y: 58,
         label: "Crownless Authority",
-        desc: '"CROWNLESS AUTHORITY" bordado en la parte trasera. Negro sobre negro — autoridad que no necesita anunciarse.',
+        desc: '"CROWNLESS CULT" bordado en la parte trasera. Negro sobre negro — autoridad que no necesita anunciarse.',
       },
       {
         id: "visor",
@@ -83,26 +82,10 @@ export const products: Product[] = [
         desc: "Cinta jacquard personalizada con texto 'ORUM' repetido en hilo gris sobre fondo negro. Lujo callado — visible solo al portador.",
       },
     ],
-    features: [
-      "Puff embroidery ORUM 3D negro sobre negro",
-      "Cruz templaria tono sobre tono",
-      "Pespunte artesanal de visera (4–6 líneas)",
-      "Encintado jacquard interior personalizado",
-      "5 paneles · all-fabric · sin malla",
-    ],
+    features: [],
     accordions: {
-      luxury: [
-        "Horma cerrada 5 paneles · frente alto estructurado con buckram · sin malla",
-        "Bordado frontal ORUM en puff 3D — serif clásica (ref. Trajan/Cinzel) negro sobre negro",
-        "Cruz patada lateral bordada en hilo negro tono sobre tono — panel derecho",
-        '"CROWNLESS AUTHORITY" bordado trasero negro sobre negro',
-        "Pespunte paralelo de visera (4–6 líneas) — textura artesanal tono sobre tono",
-        "Cinta jacquard interior 'ORUM' repetido en hilo gris sobre negro",
-        "Drill/algodón medio negro absoluto en todos los paneles y visera",
-        "Numeración individual 01/40 — edición irrepetible",
-      ],
-      packaging:
-        "Cada Authority Cap llega en una bolsa de columna de aire inflable de protección premium. Diseñada para preservar la estructura de la gorra durante el tránsito, este empaque técnico refleja el nivel de cuidado que CROWNLESS pone en cada detalle.",
+      details:
+        "La ORUM Cult Cap no ofrece contraste. Todo es negro: la tela, el bordado, el hilo. El puff embroidery ORUM en serif clásica aparece solo cuando la luz lo encuentra — tono sobre tono, invisible en penumbra. No hay decoración innecesaria, solo precisión aplicada donde importa: la cruz templaria lateral, el CROWNLESS CULT bordado en la trasera, el encintado jacquard interior que nadie más verá. Una pieza que no busca ser vista, sino reconocida.",
       care: [
         "Limpieza con paño húmedo suave",
         "No lavar a máquina ni en lavadora",
@@ -111,20 +94,20 @@ export const products: Product[] = [
         "Evitar exposición prolongada al sol directo para preservar el color",
       ],
       shipping:
-        "Envío nacional a toda Colombia en 3–5 días hábiles. Envío gratis en compras superiores a $200.000 COP. Empaque inflable de protección premium incluido.",
+        "Envíos a todo Colombia entre 2 y 5 días hábiles. Recibirás tu número de guía para hacer seguimiento en todo momento.\n\nEntregas rápidas en Medellín.",
     },
     description:
-      "La ORUM Authority Cap es la pieza central del DROP 001. 40 unidades numeradas individualmente. All-fabric negro absoluto — sin malla, sin color. Bordado puff ORUM tono sobre tono, cruz templaria lateral, encintado jacquard interior. Para quien entiende que la autoridad no necesita anunciarse.",
+      "La ORUM Cult Cap es la pieza central de la Colección ORUM. All-fabric negro absoluto — sin malla, sin color. Bordado puff ORUM tono sobre tono, cruz templaria lateral, encintado jacquard interior. Para quien entiende que la autoridad no necesita anunciarse.",
     available: true,
     stock: 40,
   },
   {
     slug: "monogram-3d-cap",
     name: "ORUM Trucker Cap",
-    subtitle: "CROWNLESS",
+    subtitle: "CROWNLESS CULT",
     collection: "DAILY Line",
     collectionTag: "DAILY LINE",
-    price: 130000,
+    price: 145000,
     currency: "COP",
     colors: ["Negro Absoluto"],
     images: [
@@ -146,14 +129,14 @@ export const products: Product[] = [
         x: 50,
         y: 82,
         label: "Banda de Visera",
-        desc: '"CROWNLESS AUTHORITY" repetido en hilo crema sobre fondo negro en el canto lateral de la visera.',
+        desc: '"CROWNLESS CULT" repetido en hilo crema sobre fondo negro en el canto lateral de la visera.',
       },
       {
         id: "cross",
         x: 73,
         y: 47,
         label: "Cruz Templaria Crema",
-        desc: "Cruz patada bordada en hilo crema sobre el panel lateral derecho de malla. Emblema de autoridad CROWNLESS.",
+        desc: "Cruz patada bordada en hilo crema sobre el panel lateral derecho de malla. Emblema de autoridad CROWNLESS CULT.",
       },
       {
         id: "back",
@@ -170,25 +153,10 @@ export const products: Product[] = [
         desc: "Cinta jacquard 'ORUM' repetido en hilo crema sobre fondo negro. Detalle premium visible solo al portador.",
       },
     ],
-    features: [
-      "Parche de cuero negro mate con bordado crema",
-      "Trucker 6 paneles · malla trasera premium",
-      '"Born to Rule" bordado trasero en gótico',
-      "Cruz templaria en hilo crema",
-      "Encintado jacquard crema personalizado",
-    ],
+    features: [],
     accordions: {
-      luxury: [
-        "Horma trucker estructurada 6 paneles · frente alto con buckram · malla negra trasera y lateral",
-        "Parche cuero negro mate: ORUM / Crownless Authority / EST. MMXXV en gótico moderno, hilo crema",
-        "Banda de visera: 'CROWNLESS AUTHORITY' repetido en hilo crema sobre negro",
-        "Cruz patada lateral bordada en hilo crema sobre malla — panel derecho",
-        '"BORN TO RULE" en gótico caligráfico hilo crema — bordado trasero en arco',
-        "Cinta jacquard interior 'ORUM' repetido en hilo crema sobre negro",
-        "Paneles frontales: drill pesado negro absoluto · Paneles traseros/laterales: malla premium negra",
-      ],
-      packaging:
-        "La ORUM Trucker Cap llega en embalaje de protección estándar CROWNLESS. Cada detalle, cuidado.",
+      details:
+        "La ORUM Trucker Cap lleva la declaración en el frontal. El parche de cuero negro mate no es un accesorio, es el punto de partida: corte limpio, cosido al panel, con ORUM / Crownless Authority / EST. MMXXV bordados en hilo crema. El contraste entre el cuero y la malla trasera define la estructura — material industrial, construcción artesanal. La cruz templaria en crema sobre malla y el BORN TO RULE en gótico trasero completan una pieza que no pretende ser discreta. Para quien lleva la autoridad visible.",
       care: [
         "Limpieza con paño húmedo suave",
         "No lavar a máquina",
@@ -196,12 +164,50 @@ export const products: Product[] = [
         "Evitar exposición prolongada al sol",
       ],
       shipping:
-        "Envío nacional a toda Colombia en 3–5 días hábiles. Envío gratis en compras superiores a $200.000 COP.",
+        "Envíos a todo Colombia entre 2 y 5 días hábiles. Recibirás tu número de guía para hacer seguimiento en todo momento.\n\nEntregas rápidas en Medellín.",
     },
     description:
-      "La entrada al mundo CROWNLESS. Trucker de 6 paneles, frente en drill pesado negro y malla trasera premium. Parche de cuero negro mate con bordado crema: ORUM · Crownless Authority · EST. MMXXV. Cruz templaria lateral. 'BORN TO RULE' bordado en arco trasero. Para quien lleva la autoridad todos los días.",
+      "La entrada al mundo CROWNLESS CULT. Trucker de frente estructurado negro y malla trasera premium. Parche de cuero negro mate con bordado crema: ORUM · Crownless Authority · EST. MMXXV. Cruz templaria lateral. 'BORN TO RULE' bordado en arco trasero. Para quien lleva la autoridad todos los días.",
     available: true,
     stock: 100,
+  },
+  {
+    slug: "orum-pack-completo",
+    name: "ORUM Pack Completo",
+    subtitle: "CROWNLESS CULT",
+    collection: "CULT Line",
+    collectionTag: "BUNDLE",
+    edition: "Cult Cap + Trucker Cap",
+    price: 270000,
+    currency: "COP",
+    colors: ["Negro Absoluto"],
+    images: [
+      "/gorras/pack_completo.jpg",
+      "/gorras/gorra1_frente.jpg",
+      "/gorras/gorra2_frente.jpg",
+      "/gorras/gorra1_atras.jpg",
+      "/gorras/gorra2_mockup.jpg",
+      "/gorras/gorra1_interna.jpg",
+      "/gorras/gorra2_interior.jpg",
+    ],
+    hotspots: [],
+    features: [],
+    accordions: {
+      details:
+        "Dos aproximaciones al mismo código estético. La Cult Cap construida desde la ausencia: negro sobre negro, un bordado que aparece solo cuando la luz lo busca. La Trucker Cap construida desde la presencia: parche de cuero negro mate, hilo crema, estructura trucker para el uso diario. Juntas definen el vocabulario ORUM — autoridad que no se anuncia, y cuando lo hace, lo hace en los términos correctos.",
+      care: [
+        "Limpieza con paño húmedo suave en ambas piezas",
+        "No lavar a máquina",
+        "Guardar en posición vertical sobre superficie plana",
+        "Evitar exposición prolongada al sol directo",
+      ],
+      shipping:
+        "Envíos a todo Colombia entre 2 y 5 días hábiles. Recibirás tu número de guía para hacer seguimiento en todo momento.\n\nEntregas rápidas en Medellín.",
+    },
+    description:
+      "Las dos piezas de la Colección ORUM en un solo movimiento. La ORUM Cult Cap — all-fabric negro absoluto, puff embroidery tono sobre tono — más la ORUM Trucker Cap — parche de cuero mate con bordado crema, BORN TO RULE en gótico trasero. Para quien no elige.",
+    available: true,
+    stock: 40,
   },
 ];
 

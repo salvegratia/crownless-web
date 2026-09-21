@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ShoppingBag, Check } from "lucide-react";
 import { Product, formatPrice } from "@/lib/data/products";
 import { useCartStore } from "@/lib/store/cart";
+import { ProductAccordions } from "./ProductAccordions";
 
 interface ProductInfoProps {
   product: Product;
@@ -29,17 +30,18 @@ export function ProductInfo({ product }: ProductInfoProps) {
           {product.collection}
         </p>
         {product.edition && (
-          <span className="inline-block text-[10px] font-[family-name:var(--font-montserrat)] font-black uppercase tracking-[0.8px] bg-black text-white px-2 py-1">
+          <span className="inline-block text-[10px] font-[family-name:var(--font-montserrat)] font-black uppercase tracking-[0.8px] bg-black text-[#A5957F] px-2 py-1">
             {product.edition}
           </span>
         )}
       </div>
 
-      {/* Name */}
+      {/* Name + Price */}
       <div>
         <h1 className="font-[family-name:var(--font-montserrat)] text-[28px] sm:text-[34px] font-black uppercase tracking-tight leading-tight text-black">
           {product.name}
         </h1>
+        <p className="text-[20px] font-bold text-black mt-1">{formatPrice(product.price)}</p>
       </div>
 
       {/* Description */}
@@ -77,7 +79,7 @@ export function ProductInfo({ product }: ProductInfoProps) {
       <div className="space-y-2 pt-1">
         <button
           onClick={handleAdd}
-          className={`w-full font-[family-name:var(--font-montserrat)] text-[13px] font-black uppercase tracking-[1.3px] h-[52px] flex items-center justify-center gap-2 rounded-[3px] transition-all ${added ? "bg-[#f5f5f5] text-black border border-black/20" : "bg-black text-white hover:opacity-70"}`}
+          className={`w-full font-[family-name:var(--font-montserrat)] text-[13px] font-black uppercase tracking-[1.3px] h-[52px] flex items-center justify-center gap-2 rounded-[3px] transition-all ${added ? "bg-[#f5f5f5] text-black border border-black/20" : "bg-black text-[#A5957F] hover:opacity-70"}`}
         >
           {added ? (
             <><Check size={15} />Agregado al Carrito</>
@@ -85,10 +87,14 @@ export function ProductInfo({ product }: ProductInfoProps) {
             <><ShoppingBag size={15} />Agregar al Carrito</>
           )}
         </button>
-        {product.stock && product.stock <= 10 && (
-          <p className="text-center text-[12px] text-black/50">Solo quedan {product.stock} unidades</p>
-        )}
       </div>
+
+      {/* Acordeones */}
+      <ProductAccordions
+        details={product.accordions.details}
+        care={product.accordions.care}
+        shipping={product.accordions.shipping}
+      />
     </div>
   );
 }

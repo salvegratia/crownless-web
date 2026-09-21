@@ -44,7 +44,7 @@ export function ProductCard({ product }: ProductCardProps) {
 
         {/* Edition badge */}
         {product.edition && (
-          <div className="absolute top-2 left-2 bg-black text-white text-[10px] font-[family-name:var(--font-montserrat)] font-black uppercase tracking-[0.8px] px-2 py-1">
+          <div className="absolute top-2 left-2 bg-black text-[#A5957F] text-[10px] font-[family-name:var(--font-montserrat)] font-black uppercase tracking-[0.8px] px-2 py-1">
             Limitada
           </div>
         )}
@@ -53,7 +53,7 @@ export function ProductCard({ product }: ProductCardProps) {
         <div className={`absolute bottom-0 left-0 right-0 transition-all duration-200 ${hovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}>
           <button
             onClick={handleAdd}
-            className="w-full bg-black text-white font-[family-name:var(--font-montserrat)] text-[12px] font-black uppercase tracking-[1.3px] h-[40px] flex items-center justify-center gap-2 hover:bg-black/80 transition-colors"
+            className="w-full bg-black text-[#A5957F] font-[family-name:var(--font-montserrat)] text-[12px] font-black uppercase tracking-[1.3px] h-[40px] flex items-center justify-center gap-2 hover:bg-black/80 transition-colors"
           >
             <ShoppingBag size={13} />
             {added ? "Agregado ✓" : "Agregar"}
@@ -68,6 +68,7 @@ export function ProductCard({ product }: ProductCardProps) {
         </p>
         <div className="flex items-start justify-between gap-2">
           <span className="text-[14px] font-bold text-black leading-[18px]">{product.name}</span>
+          <span className="text-[14px] font-bold text-black shrink-0">{formatPrice(product.price)}</span>
         </div>
         {product.colors.length > 1 && (
           <p className="text-[12px] text-black/40 mt-1">{product.colors.join(" / ")}</p>

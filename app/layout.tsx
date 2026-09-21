@@ -20,12 +20,12 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "CROWNLESS — Born to Rule",
-  description: "Headwear de lujo urbano desde Medellín. DROP 001 — Colección ORUM.",
+  title: "CROWNLESS CULT — Born to Rule",
+  description: "Colección ORUM — CROWNLESS CULT.",
   openGraph: {
-    title: "CROWNLESS — Born to Rule",
-    description: "DROP 001 — Colección ORUM. 40 unidades. Sin reposición.",
-    siteName: "CROWNLESS",
+    title: "CROWNLESS CULT — Born to Rule",
+    description: "Colección ORUM.",
+    siteName: "CROWNLESS CULT",
   },
 };
 

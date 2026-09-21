@@ -1,6 +1,5 @@
 import { HeroBanner } from "@/components/home/HeroBanner";
 import { ProductCarousel } from "@/components/home/ProductCarousel";
-import { FitGuideSection } from "@/components/home/FitGuideSection";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 
 export default function HomePage() {
@@ -8,7 +7,6 @@ export default function HomePage() {
     <>
       <HeroBanner />
       <ProductCarousel />
-      <FitGuideSection />
       <NewsletterSection />
     </>
   );

@@ -1,0 +1,78 @@
+{
+  "reference": "gorra2_frente.jpg",
+  "dimensions": {
+    "width": 1024,
+    "height": 1024,
+    "aspect": 1.0
+  },
+  "background": {
+    "corners_rgb": {
+      "top_left": [
+        143,
+        143,
+        143
+      ],
+      "top_right": [
+        174,
+        174,
+        174
+      ],
+      "bottom_left": [
+        233,
+        233,
+        233
+      ],
+      "bottom_right": [
+        217,
+        217,
+        217
+      ]
+    },
+    "average_rgb": [
+      192,
+      192,
+      192
+    ],
+    "hex": "#c0c0c0",
+    "gradient": "lighter top-right, darker bottom-left"
+  },
+  "subject": {
+    "bbox_pixels": {
+      "x": 0,
+      "y": 0,
+      "w": 1023,
+      "h": 1023
+    },
+    "center_relative": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "coverage_pct": 99.8,
+    "padding_pct": {
+      "top": 0.0,
+      "bottom": 0.1,
+      "left": 0.0,
+      "right": 0.1
+    }
+  },
+  "processing": {
+    "bg_removal_threshold": 22,
+    "mask_blur_radius": 1.5,
+    "output_size": [
+      1024,
+      1024
+    ],
+    "gradient_corner_top_right_rgb": [
+      174,
+      174,
+      174
+    ],
+    "gradient_corner_bottom_left_rgb": [
+      233,
+      233,
+      233
+    ],
+    "output_format": "JPEG",
+    "output_quality": 92
+  }
+}

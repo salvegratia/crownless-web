@@ -2,8 +2,8 @@ import { products } from "@/lib/data/products";
 import { ProductCard } from "@/components/ui/ProductCard";
 
 export const metadata = {
-  title: "Colección DROP 001 — CROWNLESS",
-  description: "ORUM — Primera colección de gorras CROWNLESS. 40 unidades limitadas.",
+  title: "Colección ORUM — CROWNLESS CULT",
+  description: "ORUM — Primera colección de gorras CROWNLESS CULT.",
 };
 
 export default function CollectionsPage() {
@@ -12,7 +12,7 @@ export default function CollectionsPage() {
       {/* Header */}
       <div className="border-b border-[#707070] pb-8 mb-10">
         <p className="text-[11px] text-[rgb(114,107,103)] tracking-[0.4px] capitalize mb-2">
-          Drop 001
+          Colección ORUM
         </p>
         <h1 className="font-[family-name:var(--font-montserrat)] text-[32px] font-black uppercase tracking-tight text-black">
           Colección ORUM

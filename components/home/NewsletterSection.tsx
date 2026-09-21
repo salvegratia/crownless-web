@@ -17,7 +17,7 @@ export function NewsletterSection() {
             Únete al CULT Club
           </h2>
           <p className="text-[14px] text-black/60 mb-7">
-            Acceso anticipado al DROP 001 — 40 unidades limitadas.
+            Acceso anticipado al lanzamiento.
             <br />Sin spam. Solo lo esencial.
           </p>
 
@@ -38,7 +38,7 @@ export function NewsletterSection() {
               />
               <button
                 type="submit"
-                className="bg-black text-white font-[family-name:var(--font-montserrat)] text-[12px] font-black uppercase tracking-[1.3px] px-6 py-3 hover:opacity-70 transition-opacity whitespace-nowrap rounded-r-[3px]"
+                className="bg-black text-[#A5957F] font-[family-name:var(--font-montserrat)] text-[12px] font-black uppercase tracking-[1.3px] px-6 py-3 hover:opacity-70 transition-opacity whitespace-nowrap rounded-r-[3px]"
               >
                 Suscribirse
               </button>

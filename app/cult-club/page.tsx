@@ -31,9 +31,7 @@ export default function CultClubPage() {
             </h1>
             <div className="w-10 h-px bg-[#707070] mx-auto my-5" />
             <p className="text-[14px] text-black/60 mb-2 leading-relaxed">
-              El DROP 001 — Colección ORUM está a punto de salir.
-              <br />
-              <strong className="text-black">40 unidades.</strong> Sin reposición.
+              La Colección ORUM está a punto de salir.
             </p>
             <p className="text-[12px] text-black/40 tracking-[0.12em] uppercase">
               Si sabes, sabes.
@@ -53,7 +51,7 @@ export default function CultClubPage() {
                 Estás dentro.
               </h2>
               <p className="text-[14px] text-black/60">
-                Te avisaremos antes que nadie cuando el DROP 001 esté disponible.
+                Te avisaremos antes que nadie cuando esté disponible.
               </p>
             </motion.div>
           ) : (
@@ -105,7 +103,7 @@ export default function CultClubPage() {
               </div>
               <button
                 type="submit"
-                className="w-full font-[family-name:var(--font-montserrat)] text-[13px] font-black uppercase tracking-[1.3px] bg-black text-white py-4 rounded-[3px] hover:opacity-70 transition-opacity mt-2"
+                className="w-full font-[family-name:var(--font-montserrat)] text-[13px] font-black uppercase tracking-[1.3px] bg-black text-[#A5957F] py-4 rounded-[3px] hover:opacity-70 transition-opacity mt-2"
               >
                 Unirme al Culto
               </button>

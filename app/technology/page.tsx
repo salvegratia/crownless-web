@@ -28,7 +28,7 @@ const sections = [
     number: "03",
     title: "Crownless Authority",
     subtitle: "Bordado Trasero",
-    desc: '"CROWNLESS AUTHORITY" bordado en la parte trasera de la gorra. Negro sobre negro — autoridad que no necesita anunciarse. La última línea que ven cuando te alejás.',
+    desc: '"CROWNLESS CULT" bordado en la parte trasera de la gorra. Negro sobre negro — autoridad que no necesita anunciarse. La última línea que ven cuando te alejás.',
     image: "/gorras/gorra1_atras.jpg",
   },
   {

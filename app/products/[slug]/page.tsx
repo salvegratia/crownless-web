@@ -2,7 +2,6 @@ import { notFound } from "next/navigation";
 import { getProductBySlug, products } from "@/lib/data/products";
 import { ProductGallery } from "@/components/product/ProductGallery";
 import { ProductInfo } from "@/components/product/ProductInfo";
-import { ProductAccordions } from "@/components/product/ProductAccordions";
 import { ProductCard } from "@/components/ui/ProductCard";
 
 export async function generateStaticParams() {
@@ -14,7 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const product = getProductBySlug(slug);
   if (!product) return {};
   return {
-    title: `${product.name} — CROWNLESS`,
+    title: `${product.name} — CROWNLESS CULT`,
     description: product.description,
   };
 }
@@ -41,16 +40,6 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 mb-16">
         <ProductGallery images={product.images} name={product.name} />
         <ProductInfo product={product} />
-      </div>
-
-      {/* Accordions */}
-      <div className="mb-16 max-w-2xl">
-        <ProductAccordions
-          luxury={product.accordions.luxury}
-          packaging={product.accordions.packaging}
-          care={product.accordions.care}
-          shipping={product.accordions.shipping}
-        />
       </div>
 
       {/* Related products */}

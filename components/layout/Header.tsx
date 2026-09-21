@@ -8,7 +8,6 @@ import { AnnouncementBar } from "./AnnouncementBar";
 
 const navLinks = [
   { label: "Colección", href: "/collections" },
-  { label: "Guía de Fits", href: "/fit-guide" },
   { label: "CULT Club", href: "/cult-club" },
 ];
 
@@ -41,9 +40,9 @@ export function Header() {
           {/* Logo */}
           <Link
             href="/"
-            className="font-[family-name:var(--font-montserrat)] text-black text-[15px] font-black tracking-[0.06em] uppercase hover:opacity-70 transition-opacity"
+            className="font-[family-name:var(--font-montserrat)] text-black text-[12px] font-black tracking-[0.08em] uppercase hover:opacity-70 transition-opacity whitespace-nowrap"
           >
-            Crownless
+            CROWNLESS CULT
           </Link>
 
           {/* Desktop Nav */}
@@ -74,7 +73,7 @@ export function Header() {
             >
               <ShoppingBag size={20} strokeWidth={1.5} />
               {count > 0 && (
-                <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-black text-white text-[9px] font-bold rounded-full flex items-center justify-center">
+                <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-black text-[#A5957F] text-[9px] font-bold rounded-full flex items-center justify-center">
                   {count}
                 </span>
               )}

@@ -17,14 +17,9 @@ export function ProductCarousel() {
       <div className="max-w-[1220px] mx-auto px-4 lg:px-6">
         {/* Header */}
         <div className="flex items-end justify-between mb-7">
-          <div>
-            <p className="text-[11px] text-[rgb(114,107,103)] tracking-[0.4px] capitalize mb-1">
-              Drop 001
-            </p>
-            <h2 className="font-[family-name:var(--font-montserrat)] text-[22px] font-black uppercase tracking-tight">
-              Colección ORUM
-            </h2>
-          </div>
+          <h2 className="font-[family-name:var(--font-montserrat)] text-[22px] font-black uppercase tracking-tight">
+            Gorras
+          </h2>
           <div className="flex gap-1.5">
             <button onClick={() => scroll("left")} className="w-8 h-8 border border-[#e4e4e4] flex items-center justify-center text-black/50 hover:text-black hover:border-black transition-all">
               <ChevronLeft size={14} />
@@ -35,7 +30,7 @@ export function ProductCarousel() {
           </div>
         </div>
 
-        {/* Scrollable cards — desktop 4-up, mobile 1.2-up */}
+        {/* Cards */}
         <div
           ref={scrollRef}
           className="flex gap-[14px] overflow-x-auto snap-x snap-mandatory"
@@ -48,9 +43,9 @@ export function ProductCarousel() {
           ))}
         </div>
 
-        {/* View all CTA */}
+        {/* CTA */}
         <div className="mt-8 text-center">
-          <a href="/collections" className="inline-flex items-center justify-center border border-black text-black font-[family-name:var(--font-montserrat)] text-[12px] font-black uppercase tracking-[1.3px] h-[39px] px-8 rounded-[3px] hover:bg-black hover:text-white transition-all">
+          <a href="/collections" className="inline-flex items-center justify-center border border-black text-black font-[family-name:var(--font-montserrat)] text-[12px] font-black uppercase tracking-[1.3px] h-[39px] px-8 rounded-[3px] hover:bg-black hover:text-[#A5957F] transition-all">
             Ver todos los productos
           </a>
         </div>
