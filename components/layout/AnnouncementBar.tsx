@@ -9,7 +9,7 @@ const messages = [
 
 export function AnnouncementBar() {
   return (
-    <div className="bg-black text-[#A5957F] py-2 text-center text-[13px] tracking-[0.4px] font-sans font-normal overflow-hidden">
+    <div className="bg-black text-[#A5957F] py-2 text-center text-[13px] tracking-[0.4px] font-[family-name:var(--font-montserrat)] font-black overflow-hidden">
       <div
         className="flex whitespace-nowrap"
         style={{ animation: "marquee 30s linear infinite" }}

@@ -13,7 +13,7 @@ export function ProductCarousel() {
   };
 
   return (
-    <section className="py-10 lg:py-14">
+    <section className="py-6 lg:py-10">
       <div className="max-w-[1220px] mx-auto px-4 lg:px-6">
         {/* Header */}
         <div className="flex items-end justify-between mb-7">

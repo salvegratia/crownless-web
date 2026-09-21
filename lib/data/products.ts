@@ -177,7 +177,7 @@ export const products: Product[] = [
     subtitle: "CROWNLESS CULT",
     collection: "CULT Line",
     collectionTag: "BUNDLE",
-    edition: "Cult Cap + Trucker Cap",
+    edition: undefined,
     price: 270000,
     currency: "COP",
     colors: ["Negro Absoluto"],
