@@ -34,7 +34,7 @@ export function ProductGallery({ images, name }: ProductGalleryProps) {
             src={images[active]}
             alt={name}
             fill
-            className="object-cover object-top"
+            className="object-contain"
             sizes="(max-width: 1024px) 100vw, 50vw"
             priority
           />
