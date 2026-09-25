@@ -87,14 +87,13 @@ export const products: Product[] = [
       details:
         "La Cult Cap no ofrece contraste. Todo es negro: la tela, el bordado, el hilo. El puff embroidery en serif clásica aparece solo cuando la luz lo encuentra — tono sobre tono, invisible en penumbra. No hay decoración innecesaria, solo precisión aplicada donde importa: la cruz templaria lateral, el CROWNLESS CULT bordado en la trasera, el encintado jacquard interior que nadie más verá. Una pieza que no busca ser vista, sino reconocida.",
       care: [
-        "Limpieza con paño húmedo suave",
-        "No lavar a máquina ni en lavadora",
-        "No usar secadora",
-        "Guardar en posición vertical sobre superficie plana",
-        "Evitar exposición prolongada al sol directo para preservar el color",
+        "Lavar a mano con agua fría y jabón suave.",
+        "No usar lavadora, secadora ni blanqueador.",
+        "Limpiar los bordados con un cepillo de cerdas suaves sin frotar con fuerza.",
+        "Secar a la sombra (nunca bajo el sol directo) y guardar sin doblar ni poner peso encima.",
       ],
       shipping:
-        "Envíos a todo Colombia entre 2 y 5 días hábiles. Recibirás tu número de guía para hacer seguimiento en todo momento.\n\nEntregas rápidas en Medellín.",
+        "Medellín y Área Metropolitana: 1 a 2 días hábiles.\nCiudades principales: 2 a 4 días hábiles.\nResto del país: 3 a 7 días hábiles.\nSe calcula el costo al pagar y se entrega con número de guía para rastreo.",
     },
     description:
       "La Cult Cap es la pieza central de CROWNLESS CULT. All-fabric negro absoluto — sin malla, sin color. Bordado puff tono sobre tono, cruz templaria lateral, encintado jacquard interior. Para quien entiende que la autoridad no necesita anunciarse.",
@@ -107,7 +106,7 @@ export const products: Product[] = [
     subtitle: "CROWNLESS CULT",
     collection: "DAILY Line",
     collectionTag: "DAILY LINE",
-    price: 145000,
+    price: 160000,
     currency: "COP",
     colors: ["Negro Absoluto"],
     images: [
@@ -158,13 +157,13 @@ export const products: Product[] = [
       details:
         "La Crownless Trucker Cap lleva la declaración en el frontal. El parche de cuero negro mate no es un accesorio, es el punto de partida: corte limpio, cosido al panel, con CROWNLESS CULT / Crownless Authority / EST. MMXXV bordados en hilo crema. El contraste entre el cuero y la malla trasera define la estructura — material industrial, construcción artesanal. La cruz templaria en crema sobre malla y el BORN TO RULE en gótico trasero completan una pieza que no pretende ser discreta. Para quien lleva la autoridad visible.",
       care: [
-        "Limpieza con paño húmedo suave",
-        "No lavar a máquina",
-        "Guardar sobre superficie plana",
-        "Evitar exposición prolongada al sol",
+        "Lavar a mano con agua fría y jabón suave.",
+        "No usar lavadora, secadora ni blanqueador.",
+        "Limpiar los bordados con un cepillo de cerdas suaves sin frotar con fuerza.",
+        "Secar a la sombra (nunca bajo el sol directo) y guardar sin doblar ni poner peso encima.",
       ],
       shipping:
-        "Envíos a todo Colombia entre 2 y 5 días hábiles. Recibirás tu número de guía para hacer seguimiento en todo momento.\n\nEntregas rápidas en Medellín.",
+        "Medellín y Área Metropolitana: 1 a 2 días hábiles.\nCiudades principales: 2 a 4 días hábiles.\nResto del país: 3 a 7 días hábiles.\nSe calcula el costo al pagar y se entrega con número de guía para rastreo.",
     },
     description:
       "La entrada al mundo CROWNLESS CULT. Trucker de frente estructurado negro y malla trasera premium. Parche de cuero negro mate con bordado crema: CROWNLESS CULT · Crownless Authority · EST. MMXXV. Cruz templaria lateral. 'BORN TO RULE' bordado en arco trasero. Para quien lleva la autoridad todos los días.",
@@ -178,7 +177,7 @@ export const products: Product[] = [
     collection: "CULT Line",
     collectionTag: "BUNDLE",
     edition: undefined,
-    price: 270000,
+    price: 285000,
     currency: "COP",
     colors: ["Negro Absoluto"],
     images: [
@@ -190,13 +189,13 @@ export const products: Product[] = [
       details:
         "Dos aproximaciones al mismo código estético. La Cult Cap construida desde la ausencia: negro sobre negro, un bordado que aparece solo cuando la luz lo busca. La Crownless Trucker Cap construida desde la presencia: parche de cuero negro mate, hilo crema, estructura trucker para el uso diario. Juntas definen el vocabulario CROWNLESS CULT — autoridad que no se anuncia, y cuando lo hace, lo hace en los términos correctos.",
       care: [
-        "Limpieza con paño húmedo suave en ambas piezas",
-        "No lavar a máquina",
-        "Guardar en posición vertical sobre superficie plana",
-        "Evitar exposición prolongada al sol directo",
+        "Lavar a mano con agua fría y jabón suave.",
+        "No usar lavadora, secadora ni blanqueador.",
+        "Limpiar los bordados con un cepillo de cerdas suaves sin frotar con fuerza.",
+        "Secar a la sombra (nunca bajo el sol directo) y guardar sin doblar ni poner peso encima.",
       ],
       shipping:
-        "Envíos a todo Colombia entre 2 y 5 días hábiles. Recibirás tu número de guía para hacer seguimiento en todo momento.\n\nEntregas rápidas en Medellín.",
+        "Medellín y Área Metropolitana: 1 a 2 días hábiles.\nCiudades principales: 2 a 4 días hábiles.\nResto del país: 3 a 7 días hábiles.\nSe calcula el costo al pagar y se entrega con número de guía para rastreo.",
     },
     description:
       "Las dos piezas de CROWNLESS CULT en un solo movimiento. La Cult Cap — all-fabric negro absoluto, puff embroidery tono sobre tono — más la Crownless Trucker Cap — parche de cuero mate con bordado crema, BORN TO RULE en gótico trasero. Para quien no elige.",

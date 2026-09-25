@@ -24,11 +24,8 @@ export function ProductInfo({ product }: ProductInfoProps) {
 
   return (
     <div className="flex flex-col gap-5">
-      {/* Collection + Edition */}
+      {/* Edition tag if present */}
       <div>
-        <p className="text-[12px] text-[rgb(114,107,103)] tracking-[0.4px] capitalize mb-1.5">
-          {product.collection}
-        </p>
         {product.edition && (
           <span className="inline-block text-[10px] font-[family-name:var(--font-montserrat)] font-black uppercase tracking-[0.8px] bg-black text-[#A5957F] px-2 py-1">
             {product.edition}

@@ -63,9 +63,6 @@ export function ProductCard({ product }: ProductCardProps) {
 
       {/* Meta — melin-style grid */}
       <div className="pt-[7px] pb-[10px]">
-        <p className="text-[12px] text-[rgb(114,107,103)] tracking-[0.4px] capitalize mb-0.5">
-          {product.collection}
-        </p>
         <div className="flex items-start justify-between gap-2">
           <span className="text-[14px] font-bold text-black leading-[18px]">{product.name}</span>
           <span className="text-[14px] font-bold text-black shrink-0">{formatPrice(product.price)}</span>
