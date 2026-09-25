@@ -93,7 +93,7 @@ export function AnatomySection() {
                 Ver Anatomía Completa
               </Link>
               <Link
-                href="/products/orum-authority-cap"
+                href="/products/cult-cap"
                 className="inline-flex items-center justify-center border border-black text-black font-[family-name:var(--font-montserrat)] text-[12px] font-black uppercase tracking-[1.3px] h-[39px] px-7 rounded-[3px] hover:bg-black hover:text-white transition-all"
               >
                 Ver Producto

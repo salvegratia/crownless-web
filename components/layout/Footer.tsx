@@ -6,9 +6,9 @@ export function Footer() {
   const links = {
     "Tienda": [
       { label: "Todos los Productos", href: "/collections" },
-      { label: "ORUM Cult Cap", href: "/products/orum-authority-cap" },
-      { label: "ORUM Trucker Cap", href: "/products/monogram-3d-cap" },
-      { label: "ORUM Pack Completo", href: "/products/orum-pack-completo" },
+      { label: "Cult Cap", href: "/products/cult-cap" },
+      { label: "Crownless Trucker Cap", href: "/products/crownless-trucker-cap" },
+      { label: "Crownless Pack", href: "/products/crownless-pack" },
     ],
     "Explorar": [
       { label: "CULT Club", href: "/cult-club" },

@@ -156,7 +156,7 @@ export default function TechnologyPage() {
                 </button>
               )}
               <Link
-                href="/products/orum-authority-cap"
+                href="/products/cult-cap"
                 className="font-[family-name:var(--font-montserrat)] text-[12px] font-black uppercase tracking-[1.3px] text-black/50 hover:text-black py-3 transition-colors"
               >
                 Ver Producto →
@@ -217,7 +217,7 @@ export default function TechnologyPage() {
           Ahora que ya sabes cómo está hecha
         </h2>
         <Link
-          href="/products/orum-authority-cap"
+          href="/products/cult-cap"
           className="inline-block font-[family-name:var(--font-montserrat)] text-[12px] font-black uppercase tracking-[1.3px] bg-black text-white px-10 py-4 rounded-[3px] hover:opacity-70 transition-opacity"
         >
           Comprar Authority Cap
